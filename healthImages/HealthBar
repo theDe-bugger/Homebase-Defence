@@ -1,0 +1,5 @@
+import javax.swing.*;
+import java.awt.*;
+
+JButton healthBar = new JButton;
+ImageIcon back = new ImageIcon("fullH.jpg");
