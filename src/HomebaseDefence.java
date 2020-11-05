@@ -65,6 +65,7 @@ public class HomebaseDefence {
         startResetButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                startResetButton.setText("Reset");
                 numberDestroyed = 0;
                 numHealth = 7;
                 healthBar.setIcon(fullH);
@@ -487,7 +488,7 @@ public class HomebaseDefence {
         JFrame frame = new JFrame("Homebase Defence");
         frame.setContentPane(new HomebaseDefence().mainPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(500, 950);
+        frame.setSize(375, 750);
         frame.setVisible(true);
     }
 
@@ -877,7 +878,7 @@ public class HomebaseDefence {
         if (startResetButtonFont != null) startResetButton.setFont(startResetButtonFont);
         startResetButton.setForeground(new Color(-1));
         startResetButton.setHorizontalTextPosition(0);
-        startResetButton.setText("Start/Reset");
+        startResetButton.setText("Start");
         gbc = new GridBagConstraints();
         gbc.gridx = 1;
         gbc.gridy = 9;
@@ -1005,7 +1006,7 @@ public class HomebaseDefence {
         mainPanel.add(label2, gbc);
         final JLabel label3 = new JLabel();
         label3.setBackground(new Color(-16777216));
-        Font label3Font = this.$$$getFont$$$("Contrail One", -1, 48, label3.getFont());
+        Font label3Font = this.$$$getFont$$$("Contrail One", -1, 36, label3.getFont());
         if (label3Font != null) label3.setFont(label3Font);
         label3.setForeground(new Color(-1));
         label3.setText("Homebase Defence");
@@ -1102,17 +1103,6 @@ public class HomebaseDefence {
         gbc.weightx = 1.0;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         mainPanel.add(button5, gbc);
-        final JLabel label4 = new JLabel();
-        Font label4Font = this.$$$getFont$$$("Contrail One", -1, -1, label4.getFont());
-        if (label4Font != null) label4.setFont(label4Font);
-        label4.setForeground(new Color(-1));
-        label4.setText("Ship Health: ");
-        gbc = new GridBagConstraints();
-        gbc.gridx = 4;
-        gbc.gridy = 9;
-        gbc.weightx = 1.0;
-        gbc.anchor = GridBagConstraints.EAST;
-        mainPanel.add(label4, gbc);
         highName = new JLabel();
         Font highNameFont = this.$$$getFont$$$("Contrail One", -1, -1, highName.getFont());
         if (highNameFont != null) highName.setFont(highNameFont);
@@ -1167,10 +1157,22 @@ public class HomebaseDefence {
         healthBar.setRolloverEnabled(false);
         healthBar.setText("");
         gbc = new GridBagConstraints();
-        gbc.gridx = 5;
+        gbc.gridx = 4;
         gbc.gridy = 9;
+        gbc.gridwidth = 2;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         mainPanel.add(healthBar, gbc);
+        final JLabel label4 = new JLabel();
+        Font label4Font = this.$$$getFont$$$("Contrail One", -1, -1, label4.getFont());
+        if (label4Font != null) label4.setFont(label4Font);
+        label4.setForeground(new Color(-1));
+        label4.setText("Ship Health: ");
+        gbc = new GridBagConstraints();
+        gbc.gridx = 3;
+        gbc.gridy = 9;
+        gbc.weightx = 1.0;
+        gbc.anchor = GridBagConstraints.EAST;
+        mainPanel.add(label4, gbc);
     }
 
     /**

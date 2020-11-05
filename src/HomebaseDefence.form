@@ -420,7 +420,7 @@
           <font name="Contrail One"/>
           <foreground color="-1"/>
           <horizontalTextPosition value="0"/>
-          <text value="Start/Reset"/>
+          <text value="Start"/>
         </properties>
       </component>
       <component id="18c95" class="javax.swing.JButton" binding="S1">
@@ -569,7 +569,7 @@
         </constraints>
         <properties>
           <background color="-16777216"/>
-          <font name="Contrail One" size="48"/>
+          <font name="Contrail One" size="36"/>
           <foreground color="-1"/>
           <text value="Homebase Defence"/>
         </properties>
@@ -666,17 +666,6 @@
           <verifyInputWhenFocusTarget value="false"/>
         </properties>
       </component>
-      <component id="93de6" class="javax.swing.JLabel">
-        <constraints>
-          <grid row="9" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
-          <gridbag weightx="1.0" weighty="0.0"/>
-        </constraints>
-        <properties>
-          <font name="Contrail One"/>
-          <foreground color="-1"/>
-          <text value="Ship Health: "/>
-        </properties>
-      </component>
       <component id="81554" class="javax.swing.JLabel" binding="highName">
         <constraints>
           <grid row="12" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
@@ -723,7 +712,7 @@
       </component>
       <component id="36a09" class="javax.swing.JButton" binding="healthBar">
         <constraints>
-          <grid row="9" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="9" column="4" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
           <gridbag weightx="0.0" weighty="0.0"/>
         </constraints>
         <properties>
@@ -735,6 +724,17 @@
           <requestFocusEnabled value="false"/>
           <rolloverEnabled value="false"/>
           <text value=""/>
+        </properties>
+      </component>
+      <component id="93de6" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="9" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="1.0" weighty="0.0"/>
+        </constraints>
+        <properties>
+          <font name="Contrail One"/>
+          <foreground color="-1"/>
+          <text value="Ship Health: "/>
         </properties>
       </component>
     </children>
