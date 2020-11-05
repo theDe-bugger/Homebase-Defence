@@ -660,6 +660,7 @@ public class HomebaseDefence {
         spot20.setBackground(new Color(-16777216));
         spot20.setBorderPainted(false);
         spot20.setContentAreaFilled(false);
+        spot20.setFocusPainted(false);
         spot20.setIcon(new ImageIcon(getClass().getResource("/spaceBG.png")));
         spot20.setRequestFocusEnabled(false);
         spot20.setRolloverEnabled(false);
@@ -861,6 +862,8 @@ public class HomebaseDefence {
         spot15.setBackground(new Color(-16777216));
         spot15.setBorderPainted(false);
         spot15.setContentAreaFilled(false);
+        spot15.setFocusPainted(false);
+        spot15.setFocusable(false);
         spot15.setIcon(new ImageIcon(getClass().getResource("/spaceBG.png")));
         spot15.setRequestFocusEnabled(false);
         spot15.setRolloverEnabled(false);
@@ -1033,6 +1036,8 @@ public class HomebaseDefence {
         button1.setBackground(new Color(-16777216));
         button1.setBorderPainted(false);
         button1.setContentAreaFilled(false);
+        button1.setFocusPainted(false);
+        button1.setFocusable(false);
         button1.setIcon(new ImageIcon(getClass().getResource("/shipP1.png")));
         button1.setRequestFocusEnabled(false);
         button1.setRolloverEnabled(false);
@@ -1048,6 +1053,8 @@ public class HomebaseDefence {
         button2.setBackground(new Color(-16777216));
         button2.setBorderPainted(false);
         button2.setContentAreaFilled(false);
+        button2.setFocusPainted(false);
+        button2.setFocusable(false);
         button2.setIcon(new ImageIcon(getClass().getResource("/shipP2.png")));
         button2.setRequestFocusEnabled(false);
         button2.setRolloverEnabled(false);
@@ -1063,6 +1070,8 @@ public class HomebaseDefence {
         button3.setBackground(new Color(-16777216));
         button3.setBorderPainted(false);
         button3.setContentAreaFilled(false);
+        button3.setFocusPainted(false);
+        button3.setFocusable(false);
         button3.setIcon(new ImageIcon(getClass().getResource("/shipP3.png")));
         button3.setRequestFocusEnabled(false);
         button3.setRolloverEnabled(false);
@@ -1078,6 +1087,8 @@ public class HomebaseDefence {
         button4.setBackground(new Color(-16777216));
         button4.setBorderPainted(false);
         button4.setContentAreaFilled(false);
+        button4.setFocusPainted(false);
+        button4.setFocusable(false);
         button4.setIcon(new ImageIcon(getClass().getResource("/shipP4.png")));
         button4.setRequestFocusEnabled(false);
         button4.setRolloverEnabled(false);
@@ -1093,6 +1104,8 @@ public class HomebaseDefence {
         button5.setBackground(new Color(-16777216));
         button5.setBorderPainted(false);
         button5.setContentAreaFilled(false);
+        button5.setFocusPainted(false);
+        button5.setFocusable(false);
         button5.setIcon(new ImageIcon(getClass().getResource("/shipP5.png")));
         button5.setRequestFocusEnabled(false);
         button5.setRolloverEnabled(false);
