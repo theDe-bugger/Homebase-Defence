@@ -488,8 +488,9 @@ public class HomebaseDefence {
         JFrame frame = new JFrame("Homebase Defence");
         frame.setContentPane(new HomebaseDefence().mainPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(380, 750);
+        frame.setSize(390, 755);
         frame.setVisible(true);
+        frame.setResizable(false);
     }
 
     {
@@ -874,7 +875,7 @@ public class HomebaseDefence {
         startResetButton = new JButton();
         startResetButton.setBackground(new Color(-16777216));
         startResetButton.setBorderPainted(false);
-        Font startResetButtonFont = this.$$$getFont$$$("Calibri", -1, -1, startResetButton.getFont());
+        Font startResetButtonFont = this.$$$getFont$$$("Calibri", -1, 9, startResetButton.getFont());
         if (startResetButtonFont != null) startResetButton.setFont(startResetButtonFont);
         startResetButton.setForeground(new Color(-1));
         startResetButton.setHorizontalTextPosition(0);
@@ -970,7 +971,7 @@ public class HomebaseDefence {
         exitButton = new JButton();
         exitButton.setBackground(new Color(-16777216));
         exitButton.setBorderPainted(false);
-        Font exitButtonFont = this.$$$getFont$$$("Calibri", -1, -1, exitButton.getFont());
+        Font exitButtonFont = this.$$$getFont$$$("Calibri", -1, 9, exitButton.getFont());
         if (exitButtonFont != null) exitButton.setFont(exitButtonFont);
         exitButton.setForeground(new Color(-1));
         exitButton.setHorizontalTextPosition(0);
@@ -982,7 +983,7 @@ public class HomebaseDefence {
         gbc.fill = GridBagConstraints.HORIZONTAL;
         mainPanel.add(exitButton, gbc);
         final JLabel label1 = new JLabel();
-        Font label1Font = this.$$$getFont$$$("Calibri", -1, -1, label1.getFont());
+        Font label1Font = this.$$$getFont$$$("Calibri", -1, 9, label1.getFont());
         if (label1Font != null) label1.setFont(label1Font);
         label1.setForeground(new Color(-1));
         label1.setHorizontalAlignment(0);
@@ -1104,7 +1105,7 @@ public class HomebaseDefence {
         gbc.fill = GridBagConstraints.HORIZONTAL;
         mainPanel.add(button5, gbc);
         highName = new JLabel();
-        Font highNameFont = this.$$$getFont$$$("Calibri", -1, -1, highName.getFont());
+        Font highNameFont = this.$$$getFont$$$("Calibri", -1, 9, highName.getFont());
         if (highNameFont != null) highName.setFont(highNameFont);
         highName.setForeground(new Color(-1));
         highName.setText("");
@@ -1115,7 +1116,7 @@ public class HomebaseDefence {
         gbc.anchor = GridBagConstraints.WEST;
         mainPanel.add(highName, gbc);
         highScore = new JLabel();
-        Font highScoreFont = this.$$$getFont$$$("Calibri", -1, -1, highScore.getFont());
+        Font highScoreFont = this.$$$getFont$$$("Calibri", -1, 9, highScore.getFont());
         if (highScoreFont != null) highScore.setFont(highScoreFont);
         highScore.setForeground(new Color(-1));
         highScore.setText("");
@@ -1126,7 +1127,7 @@ public class HomebaseDefence {
         gbc.anchor = GridBagConstraints.WEST;
         mainPanel.add(highScore, gbc);
         numDestroyed = new JLabel();
-        Font numDestroyedFont = this.$$$getFont$$$("Calibri", -1, -1, numDestroyed.getFont());
+        Font numDestroyedFont = this.$$$getFont$$$("Calibri", -1, 9, numDestroyed.getFont());
         if (numDestroyedFont != null) numDestroyed.setFont(numDestroyedFont);
         numDestroyed.setForeground(new Color(-1));
         numDestroyed.setText("");
@@ -1137,7 +1138,7 @@ public class HomebaseDefence {
         gbc.anchor = GridBagConstraints.WEST;
         mainPanel.add(numDestroyed, gbc);
         scoreNum = new JLabel();
-        Font scoreNumFont = this.$$$getFont$$$("Calibri", -1, -1, scoreNum.getFont());
+        Font scoreNumFont = this.$$$getFont$$$("Calibri", -1, 9, scoreNum.getFont());
         if (scoreNumFont != null) scoreNum.setFont(scoreNumFont);
         scoreNum.setForeground(new Color(-1));
         scoreNum.setText("");
@@ -1166,7 +1167,7 @@ public class HomebaseDefence {
         Font label4Font = this.$$$getFont$$$("Calibri", -1, -1, label4.getFont());
         if (label4Font != null) label4.setFont(label4Font);
         label4.setForeground(new Color(-1));
-        label4.setText("Ship Health: ");
+        label4.setText("Health: ");
         gbc = new GridBagConstraints();
         gbc.gridx = 3;
         gbc.gridy = 9;

@@ -417,7 +417,7 @@
         <properties>
           <background color="-16777216"/>
           <borderPainted value="false"/>
-          <font name="Calibri"/>
+          <font name="Calibri" size="9"/>
           <foreground color="-1"/>
           <horizontalTextPosition value="0"/>
           <text value="Start"/>
@@ -531,7 +531,7 @@
         <properties>
           <background color="-16777216"/>
           <borderPainted value="false"/>
-          <font name="Calibri"/>
+          <font name="Calibri" size="9"/>
           <foreground color="-1"/>
           <horizontalTextPosition value="0"/>
           <text value="Exit"/>
@@ -543,7 +543,7 @@
           <gridbag weightx="1.0" weighty="0.0"/>
         </constraints>
         <properties>
-          <font name="Calibri"/>
+          <font name="Calibri" size="9"/>
           <foreground color="-1"/>
           <horizontalAlignment value="0"/>
           <horizontalTextPosition value="0"/>
@@ -672,7 +672,7 @@
           <gridbag weightx="1.0" weighty="0.0"/>
         </constraints>
         <properties>
-          <font name="Calibri"/>
+          <font name="Calibri" size="9"/>
           <foreground color="-1"/>
           <text value=""/>
         </properties>
@@ -683,7 +683,7 @@
           <gridbag weightx="1.0" weighty="0.0"/>
         </constraints>
         <properties>
-          <font name="Calibri"/>
+          <font name="Calibri" size="9"/>
           <foreground color="-1"/>
           <text value=""/>
         </properties>
@@ -694,7 +694,7 @@
           <gridbag weightx="1.0" weighty="0.0"/>
         </constraints>
         <properties>
-          <font name="Calibri"/>
+          <font name="Calibri" size="9"/>
           <foreground color="-1"/>
           <text value=""/>
         </properties>
@@ -705,7 +705,7 @@
           <gridbag weightx="1.0" weighty="0.0"/>
         </constraints>
         <properties>
-          <font name="Calibri"/>
+          <font name="Calibri" size="9"/>
           <foreground color="-1"/>
           <text value=""/>
         </properties>
@@ -734,7 +734,7 @@
         <properties>
           <font name="Calibri"/>
           <foreground color="-1"/>
-          <text value="Ship Health: "/>
+          <text value="Health: "/>
         </properties>
       </component>
     </children>
