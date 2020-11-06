@@ -584,6 +584,24 @@ public class HomebaseDefence {
         } else if (check.equals("wrong")) {
             if (asteroidLoc[24][1].equals("asteroid") || asteroidLoc[23][1].equals("asteroid") || asteroidLoc[22][1].equals("asteroid") || asteroidLoc[21][1].equals("asteroid") || asteroidLoc[20][1].equals("asteroid")) {
                 numHealth--;
+                if( numHealth == 6){
+                    healthBar.setIcon(sixH);
+                }
+                else if( numHealth == 5){
+                    healthBar.setIcon(fiveH);
+                }
+                else if( numHealth == 4){
+                    healthBar.setIcon(fourH);
+                }
+                else if( numHealth == 3){
+                    healthBar.setIcon(threeH);
+                }
+                else if( numHealth == 2){
+                    healthBar.setIcon(twoH);
+                }
+                else if( numHealth == 1){
+                    healthBar.setIcon(oneH);
+                }
                 if(asteroidLoc[24][1].equals("asteroid")){
                     spot24.setIcon(space);
                 } else if (asteroidLoc[23][1].equals("asteroid")){
@@ -594,6 +612,7 @@ public class HomebaseDefence {
                     spot21.setIcon(space);
                 }
                 if (numHealth == 0){
+                    healthBar.setIcon(noH);
                     startResetButton.doClick();
                 }
             }
