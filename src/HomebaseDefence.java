@@ -7,6 +7,14 @@ import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.List;
 import java.awt.Color;
+import java.io.*;
+import javax.xml.parsers.*;
+import javax.xml.transform.*;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+
+import org.w3c.dom.*;
+import org.xml.sax.*;
 // edit for no reason
 public class HomebaseDefence {
     private JPanel mainPanel;
@@ -66,6 +74,7 @@ public class HomebaseDefence {
     ImageIcon chosenIcon = new ImageIcon(getClass().getResource("/chosenIcon.png"));
     int numberDestroyed;
     int score;
+    int highscores;
     int numHealth;
     ArrayList <Integer> pattern = new ArrayList<>();
     ArrayList <Integer> ipattern = new ArrayList<>();
@@ -77,7 +86,6 @@ public class HomebaseDefence {
     int min = 1;
     int delay = 1000;
     
-
     public HomebaseDefence() {
         simonDisable();
         startResetButton.addActionListener(new ActionListener() {
@@ -96,7 +104,7 @@ public class HomebaseDefence {
                 numDestroyed.setText("Destroyed: ");
                 scoreNum.setText("Score: ");
                 // set high score values
-
+                HighScoreBegin();
                 // initializes SimonSays component
                 ipattern.clear();
                 pattern.clear();
@@ -267,6 +275,82 @@ public class HomebaseDefence {
                 }
             });
 }
+
+    public void HighScore() {
+        try {
+            String name = "Player 1";
+            String filepath = "./HighScore.xml";
+            DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
+            Document doc = docBuilder.parse(filepath);
+            
+            Node a = doc.getElementsByTagName("name").item(0);
+            a.setTextContent(name);
+    
+            Node b = doc.getElementsByTagName("score").item(0);
+            b.setTextContent(String.valueOf(score));
+
+            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            Transformer transformer = transformerFactory.newTransformer();
+            DOMSource source = new DOMSource(doc);
+            StreamResult result =  new StreamResult(new File(filepath));
+            transformer.transform(source, result);
+
+            doc.getDocumentElement().normalize();
+            NodeList nodeList = doc.getElementsByTagName("HighScore");
+            for (int i = 0; i < nodeList.getLength(); i++) {
+                Node node = nodeList.item(i);
+                if (node.getNodeType() == Node.ELEMENT_NODE) {
+                    Element eElement = (Element) node;  
+                    highScore.setText(eElement.getElementsByTagName("score").item(0).getTextContent());  
+                    highName.setText(eElement.getElementsByTagName("name").item(0).getTextContent());
+                }
+            }
+        } catch(ParserConfigurationException pce) {
+            pce.printStackTrace();
+        } catch(TransformerException tfe) {
+            tfe.printStackTrace();
+        } catch(IOException ioe) {
+            ioe.printStackTrace();
+        } catch(SAXException sae) {
+            sae.printStackTrace();
+        }
+    }
+
+    public void HighScoreBegin() {
+        try {
+            String name = "";
+            String filepath = "./HighScore.xml";
+            DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
+            Document doc = docBuilder.parse(filepath);
+
+            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            Transformer transformer = transformerFactory.newTransformer();
+            DOMSource source = new DOMSource(doc);
+            StreamResult result =  new StreamResult(new File(filepath));
+            transformer.transform(source, result);
+
+            doc.getDocumentElement().normalize();
+            NodeList nodeList = doc.getElementsByTagName("HighScore");
+            for (int i = 0; i < nodeList.getLength(); i++) {
+                Node node = nodeList.item(i);
+                if (node.getNodeType() == Node.ELEMENT_NODE) {
+                    Element eElement = (Element) node;  
+                    highScore.setText(eElement.getElementsByTagName("score").item(0).getTextContent());  
+                    highName.setText(eElement.getElementsByTagName("name").item(0).getTextContent());
+                }
+            }
+        } catch(ParserConfigurationException pce) {
+            pce.printStackTrace();
+        } catch(TransformerException tfe) {
+            tfe.printStackTrace();
+        } catch(IOException ioe) {
+            ioe.printStackTrace();
+        } catch(SAXException sae) {
+            sae.printStackTrace();
+        }
+    }
     public void AsteroidClear() {
         spot0.setIcon(space);
         spot1.setIcon(space);
@@ -595,10 +679,15 @@ public class HomebaseDefence {
                 } else if (asteroidLoc[21][1].equals("asteroid")){
                     spot21.setIcon(space);
                 }
-                if (numHealth == 0){
+                if (numHealth == 0) {
                     healthBar.setIcon(noH);
-                    startResetButton.doClick();
+                    // startResetButton.doClick();
                 }
+            }
+            if (numHealth == 0 && score > highscores) {
+                highscores = score;
+                HighScore();
+                // startResetButton.doClick();
             }
             if (asteroidLoc[19][1].equals("asteroid")) {
                 spot19.setIcon(space);
