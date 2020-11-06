@@ -92,8 +92,9 @@ public class HomebaseDefence {
                 UpdateAsteroidLoc();
                 // to start with multiple
                 Asteroids("wrong");
-                // set score to 0
-
+                score = 0;
+                numDestroyed.setText("Destroyed: ");
+                scoreNum.setText("Score: ");
                 // set high score values
 
                 // initializes SimonSays component
@@ -445,6 +446,7 @@ public class HomebaseDefence {
     public void Asteroids(String check) {
         if (check.equals("right")) {
             numberDestroyed++;
+            score += 5 * round;
             if (asteroidLoc[24][1].equals("asteroid")) {
                 spot24.setIcon(space);
             } else if (asteroidLoc[23][1].equals("asteroid")) {
@@ -677,9 +679,6 @@ public class HomebaseDefence {
             }
             UpdateAsteroidLoc();
             NewAsteroid();
-            numDestroyed.setText("Destroyed: " + numberDestroyed);
-            score = numDestroyed * 5 * round;
-            scoreNum.setText("Score: " + score);
         }
     }
 
@@ -819,6 +818,8 @@ public class HomebaseDefence {
         inputPattern = new Integer[0];
         ipattern.clear();
         Asteroids(check);
+        numDestroyed.setText("Destroyed: " + numberDestroyed);
+        scoreNum.setText("Score: " + score);
         patternSize++;
         if (patternSize == 8){
             patternSize = 3;
