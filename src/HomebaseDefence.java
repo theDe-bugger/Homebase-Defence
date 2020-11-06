@@ -3,6 +3,10 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
+import java.awt.Color;
 // edit for no reason
 public class HomebaseDefence {
     private JPanel mainPanel;
@@ -58,10 +62,22 @@ public class HomebaseDefence {
     ImageIcon twoH = new ImageIcon(getClass().getResource("/twoH.jpg"));
     ImageIcon oneH = new ImageIcon(getClass().getResource("/oneH.jpg"));
     ImageIcon noH = new ImageIcon(getClass().getResource("/noH.jpg"));
+    ImageIcon defaultIcon = new ImageIcon(getClass().getResource("/defaultIcon.jpg"));
+    ImageIcon chosenIcon = new ImageIcon(getClass().getResource("/chosenIcon.png"));
     int numberDestroyed;
     int numHealth;
+    ArrayList <Integer> pattern = new ArrayList<>();
+    ArrayList <Integer> ipattern = new ArrayList<>();
+    Integer[] simonPattern;
+    Integer[] inputPattern;
+    int patternSize = 3;
+    int round = 1;
+    int max = 9;
+    int min = 1;
+    int delay = 1000;
 
     public HomebaseDefence() {
+        simonDisable();
         startResetButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -75,18 +91,195 @@ public class HomebaseDefence {
                 // to start with multiple
                 Asteroids("wrong");
                 // set score to 0
-                // set highscore values
-                //simon says class (in the class have a string that says if it is right or wrong then call Asteroids(variable of string saying "right" or "wrong")
+
+                // set high score values
+
+                // initializes SimonSays component
+                ipattern.clear();
+                pattern.clear();
+                patternSize = 3;
+                round = 1;
+                delay = 1000;
+                SimonSays();
             }
-        });
+            });
         exitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);
             }
         });
-    }
-
+    // Simon Says input buttons
+    S1.addActionListener(new ActionListener() {
+        @Override
+                public void actionPerformed(ActionEvent e) {
+                    if (ipattern.size() < patternSize-1) {
+                        ipattern.add(1);
+                        simonDisable();
+                        // change icon of button to different colour
+                        S1.setDisabledIcon(chosenIcon);
+                        simonDisable();
+                        simonEnable();
+                    } else if(ipattern.size() == patternSize-1) {
+                        ipattern.add(1);
+                        simonDisable();
+                        checkPattern();
+                    }
+                }
+    });
+    S2.addActionListener(new ActionListener() {
+        @Override
+                public void actionPerformed(ActionEvent e) {
+                    if (ipattern.size() < patternSize-1) {
+                        ipattern.add(2);
+                        simonDisable();
+                        // change icon of button to different colour
+                        S2.setDisabledIcon(chosenIcon);
+                        simonDisable();
+                        simonEnable();
+                    } else if( ipattern.size() == patternSize-1) {
+                        ipattern.add(2);
+                        simonDisable();
+                        checkPattern();
+                    }
+                }
+    });
+    S3.addActionListener(new ActionListener() {
+        @Override
+                public void actionPerformed(ActionEvent e) {
+                    if (ipattern.size() < patternSize-1) {
+                        ipattern.add(3);
+                        simonDisable();
+                        // change icon of button to different colour
+                        S3.setDisabledIcon(chosenIcon);
+                        simonDisable();
+                        simonEnable();
+                    } else if( ipattern.size() == patternSize-1) {
+                        ipattern.add(3);
+                        simonDisable();
+                        checkPattern();
+                    }
+                }
+    });
+    S4.addActionListener(new ActionListener() {
+        @Override
+                public void actionPerformed(ActionEvent e) {
+                    if (ipattern.size() < patternSize-1) {
+                        ipattern.add(4);
+                        simonDisable();
+                        // change icon of button to different colour
+                        S4.setDisabledIcon(chosenIcon);
+                        simonDisable();
+                        simonEnable();
+                    } else if( ipattern.size() == patternSize-1) {
+                        ipattern.add(4);
+                        simonDisable();
+                        checkPattern();
+                    }
+                }
+    });
+    S5.addActionListener(new ActionListener() {
+        @Override
+                public void actionPerformed(ActionEvent e) {
+                    if (ipattern.size() < patternSize-1) {
+                        ipattern.add(5);
+                        simonDisable();
+                        // change icon of button to different colour
+                        S5.setDisabledIcon(chosenIcon);
+                        simonDisable();
+                        simonEnable();
+                    } else if( ipattern.size() == patternSize-1) {
+                        ipattern.add(5);
+                        simonDisable();
+                        checkPattern();
+                    }
+                }
+    });
+    S6.addActionListener(new ActionListener() {
+        @Override
+                public void actionPerformed(ActionEvent e) {
+                    if (ipattern.size() < patternSize-1) {
+                        ipattern.add(6);
+                        simonDisable();
+                        // change icon of button to different colour
+                        S6.setDisabledIcon(chosenIcon);
+                        simonDisable();
+                        simonEnable();
+                    } else if(ipattern.size() == patternSize-1) {
+                        ipattern.add(6);
+                        simonDisable();
+                        checkPattern();
+                    }
+                }
+    });
+    S7.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            Timer timer = new Timer(1000, null);
+            timer.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    if (ipattern.size() < patternSize-1) {
+                        ipattern.add(7);
+                        simonDisable();
+                        // change icon of button to different colour
+                        S7.setDisabledIcon(chosenIcon);
+                        simonDisable();
+                        simonEnable();
+                    } else if( ipattern.size() == patternSize-1) {
+                        ipattern.add(7);
+                        simonDisable();
+                        checkPattern();
+                    }
+                }
+            });
+            // starts timer to animate the game better
+            timer.start();
+            timer.setRepeats(false);
+        }
+    });
+    S8.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            Timer timer = new Timer(1000, null);
+            timer.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    if (ipattern.size() < patternSize-1) {
+                        ipattern.add(8);
+                        simonDisable();
+                        // change icon of button to different colour
+                        S8.setDisabledIcon(chosenIcon);
+                        simonDisable();
+                        simonEnable();
+                    } else if(ipattern.size() == patternSize-1) {
+                        ipattern.add(8);
+                        simonDisable();
+                        checkPattern();
+                    }
+                }
+            });
+            // starts timer to animate the game better
+            timer.start();
+            timer.setRepeats(false);
+        }
+    });
+    S9.addActionListener(new ActionListener() {
+        @Override
+                public void actionPerformed(ActionEvent e) {
+                    if (ipattern.size() < patternSize-1) {
+                        ipattern.add(9);
+                        simonDisable();
+                        // change icon of button to different colour
+                        S9.setDisabledIcon(chosenIcon);
+                        simonDisable();
+                        simonEnable();
+                    } else if(ipattern.size() == patternSize-1) {
+                        ipattern.add(9);
+                        simonDisable();
+                        checkPattern();
+                    }
+                }
+            });
+}
     public void AsteroidClear() {
         spot0.setIcon(space);
         spot1.setIcon(space);
@@ -246,7 +439,7 @@ public class HomebaseDefence {
             }
         }
     }
-
+    
     public void Asteroids(String check) {
         if (check.equals("right")) {
             numberDestroyed++;
@@ -387,6 +580,18 @@ public class HomebaseDefence {
         } else if (check.equals("wrong")) {
             if (asteroidLoc[24][1].equals("asteroid") || asteroidLoc[23][1].equals("asteroid") || asteroidLoc[22][1].equals("asteroid") || asteroidLoc[21][1].equals("asteroid") || asteroidLoc[20][1].equals("asteroid")) {
                 numHealth--;
+                if(asteroidLoc[24][1].equals("asteroid")){
+                    spot24.setIcon(space);
+                } else if (asteroidLoc[23][1].equals("asteroid")){
+                    spot23.setIcon(space);
+                } else if (asteroidLoc[22][1].equals("asteroid")){
+                    spot22.setIcon(space);
+                } else if (asteroidLoc[21][1].equals("asteroid")){
+                    spot21.setIcon(space);
+                }
+                if (numHealth == 0){
+                    startResetButton.doClick();
+                }
             }
             if (asteroidLoc[19][1].equals("asteroid")) {
                 spot19.setIcon(space);
@@ -483,7 +688,144 @@ public class HomebaseDefence {
         if (newLoc == 4) spot4.setIcon(asteroid);
         UpdateAsteroidLoc();
     }
+    public void simonDisable() {
+        S1.setDisabledIcon(defaultIcon);
+        S1.setEnabled(false);
+        S2.setDisabledIcon(defaultIcon);
+        S2.setEnabled(false);
+        S3.setDisabledIcon(defaultIcon);
+        S3.setEnabled(false);
+        S4.setDisabledIcon(defaultIcon);
+        S4.setEnabled(false);
+        S5.setDisabledIcon(defaultIcon);
+        S5.setEnabled(false);
+        S6.setDisabledIcon(defaultIcon);
+        S6.setEnabled(false);
+        S7.setDisabledIcon(defaultIcon);
+        S7.setEnabled(false);
+        S8.setDisabledIcon(defaultIcon);
+        S8.setEnabled(false);
+        S9.setDisabledIcon(defaultIcon);
+        S9.setEnabled(false);
+    }
 
+    public void simonEnable() {
+        S1.setEnabled(true);
+        S1.setIcon(defaultIcon);
+        S1.setDisabledIcon(defaultIcon);
+        S2.setEnabled(true);
+        S2.setIcon(defaultIcon);
+        S2.setDisabledIcon(defaultIcon);
+        S3.setEnabled(true);
+        S3.setIcon(defaultIcon);
+        S3.setDisabledIcon(defaultIcon);
+        S4.setEnabled(true);
+        S4.setIcon(defaultIcon);
+        S4.setDisabledIcon(defaultIcon);
+        S5.setEnabled(true);
+        S5.setIcon(defaultIcon);
+        S5.setDisabledIcon(defaultIcon);
+        S6.setEnabled(true);
+        S6.setIcon(defaultIcon);
+        S6.setDisabledIcon(defaultIcon);
+        S7.setEnabled(true);
+        S7.setIcon(defaultIcon);
+        S7.setDisabledIcon(defaultIcon);
+        S8.setEnabled(true);
+        S8.setIcon(defaultIcon);
+        S8.setDisabledIcon(defaultIcon);
+        S9.setEnabled(true);
+        S9.setIcon(defaultIcon);
+        S9.setDisabledIcon(defaultIcon);
+    }
+    public void displaySimon(){
+
+        // set timer to round speed
+        if (patternSize == 3) {
+            for (int y = 0; y < patternSize; y++) {
+                pattern.add((int) ((Math.random()*((max-min)+1))+min));
+            }
+        } else if (patternSize > 3) {
+            pattern.add((int) ((Math.random() * ((max - min) + 1)) + min));
+        }
+        // converts array list to array
+        simonPattern = pattern.toArray(new Integer[0]);
+
+        // display each specific button based on patternSize using timer
+        double exponent = (-1) * (round-1);
+        double time = (1000*((Math.pow(2.0,exponent))));
+        delay = Math.round((int)(time));
+        Timer timer = new Timer(delay, null);
+        timer.addActionListener(new ActionListener(){
+
+            int x=0;
+            public void actionPerformed(ActionEvent e){
+                simonDisable();
+                //JOptionPane.showMessageDialog(null, Arrays.toString(simonPattern));
+                if (x <= simonPattern.length-1){
+                    if (simonPattern[x] == 1) {
+                        S1.setDisabledIcon(chosenIcon);
+                    } else if (simonPattern[x] == 2) {
+                        S2.setDisabledIcon(chosenIcon);
+                    } else if (simonPattern[x] == 3) {
+                        S3.setDisabledIcon(chosenIcon);
+                    } else if (simonPattern[x] == 4) {
+                        S4.setDisabledIcon(chosenIcon);
+                    } else if (simonPattern[x] == 5) {
+                        S5.setDisabledIcon(chosenIcon);
+                    } else if (simonPattern[x] == 6) {
+                        S6.setDisabledIcon(chosenIcon);
+                    } else if (simonPattern[x] == 7) {
+                        S7.setDisabledIcon(chosenIcon);
+                    } else if (simonPattern[x] == 8) {
+                        S8.setDisabledIcon(chosenIcon);
+                    } else if (simonPattern[x] == 9) {
+                        S9.setDisabledIcon(chosenIcon);
+                    }
+                }
+                else if(x == simonPattern.length){ timer.stop();
+                    simonEnable();
+                }
+                x++;
+            }
+        });
+        timer.setRepeats(true);
+        timer.start();
+    }
+
+    public void SimonSays() {
+
+        // show the pattern of certain length
+        displaySimon();
+
+    }
+    public void checkPattern(){
+        inputPattern = new Integer[0];
+        inputPattern = ipattern.toArray(inputPattern);
+        String check = "right";
+        for (int i = 0; i < inputPattern.length; i++) {
+            if (inputPattern[i] != simonPattern[i]) {
+                check = "wrong";
+                break;
+            } else {
+                continue;
+            }
+        }
+        // call asteroids and reset input pattern to blank
+        inputPattern = new Integer[0];
+        ipattern.clear();
+        Asteroids(check);
+        patternSize++;
+        if (patternSize == 8){
+            patternSize = 3;
+            round++;
+            pattern.clear();
+            ipattern.clear();
+            SimonSays();
+        } else{
+            SimonSays();
+        }
+    }
     public static void main(String[] args) {
         JFrame frame = new JFrame("Homebase Defence");
         frame.setContentPane(new HomebaseDefence().mainPanel);
@@ -499,7 +841,7 @@ public class HomebaseDefence {
 // DO NOT EDIT OR ADD ANY CODE HERE!
         $$$setupUI$$$();
     }
-
+    
     /**
      * Method generated by IntelliJ IDEA GUI Designer
      * >>> IMPORTANT!! <<<
@@ -890,10 +1232,13 @@ public class HomebaseDefence {
         gbc.fill = GridBagConstraints.HORIZONTAL;
         mainPanel.add(startResetButton, gbc);
         S1 = new JButton();
-        S1.setContentAreaFilled(true);
         S1.setMaximumSize(new Dimension(74, 30));
         S1.setMinimumSize(new Dimension(74, 30));
         S1.setText("");
+        S1.setIcon(defaultIcon);
+        S1.setIcon(defaultIcon);
+        S1.setBackground(new Color(17,145,208));
+        S1.setEnabled(false);
         gbc = new GridBagConstraints();
         gbc.gridx = 2;
         gbc.gridy = 11;
@@ -903,6 +1248,10 @@ public class HomebaseDefence {
         S2.setMaximumSize(new Dimension(74, 30));
         S2.setMinimumSize(new Dimension(74, 30));
         S2.setText("");
+        S2.setIcon(defaultIcon);
+        S2.setIcon(defaultIcon);
+        S2.setEnabled(false);
+        S2.setBackground(new Color(17,145,208));
         gbc = new GridBagConstraints();
         gbc.gridx = 3;
         gbc.gridy = 11;
@@ -912,6 +1261,10 @@ public class HomebaseDefence {
         S3.setMaximumSize(new Dimension(74, 30));
         S3.setMinimumSize(new Dimension(74, 30));
         S3.setText("");
+        S3.setIcon(defaultIcon);
+        S3.setIcon(defaultIcon);
+        S3.setEnabled(false);
+        S3.setBackground(new Color(17,145,208));
         gbc = new GridBagConstraints();
         gbc.gridx = 4;
         gbc.gridy = 11;
@@ -921,6 +1274,10 @@ public class HomebaseDefence {
         S4.setMaximumSize(new Dimension(74, 30));
         S4.setMinimumSize(new Dimension(74, 30));
         S4.setText("");
+        S4.setIcon(defaultIcon);
+        S4.setIcon(defaultIcon);
+        S4.setEnabled(false);
+        S4.setBackground(new Color(17,145,208));
         gbc = new GridBagConstraints();
         gbc.gridx = 2;
         gbc.gridy = 12;
@@ -930,6 +1287,10 @@ public class HomebaseDefence {
         S5.setMaximumSize(new Dimension(74, 30));
         S5.setMinimumSize(new Dimension(74, 30));
         S5.setText("");
+        S5.setIcon(defaultIcon);
+        S5.setIcon(defaultIcon);
+        S5.setEnabled(false);
+        S5.setBackground(new Color(17,145,208));
         gbc = new GridBagConstraints();
         gbc.gridx = 3;
         gbc.gridy = 12;
@@ -939,6 +1300,10 @@ public class HomebaseDefence {
         S6.setMaximumSize(new Dimension(74, 30));
         S6.setMinimumSize(new Dimension(74, 30));
         S6.setText("");
+        S6.setIcon(defaultIcon);
+        S6.setIcon(defaultIcon);
+        S6.setEnabled(false);
+        S6.setBackground(new Color(17,145,208));
         gbc = new GridBagConstraints();
         gbc.gridx = 4;
         gbc.gridy = 12;
@@ -948,6 +1313,10 @@ public class HomebaseDefence {
         S7.setMaximumSize(new Dimension(74, 30));
         S7.setMinimumSize(new Dimension(74, 30));
         S7.setText("");
+        S7.setIcon(defaultIcon);
+        S7.setIcon(defaultIcon);
+        S7.setEnabled(false);
+        S7.setBackground(new Color(17,145,208));
         gbc = new GridBagConstraints();
         gbc.gridx = 2;
         gbc.gridy = 13;
@@ -957,6 +1326,10 @@ public class HomebaseDefence {
         S8.setMaximumSize(new Dimension(74, 30));
         S8.setMinimumSize(new Dimension(74, 30));
         S8.setText("");
+        S8.setIcon(defaultIcon);
+        S8.setIcon(defaultIcon);
+        S8.setEnabled(false);
+        S8.setBackground(new Color(17,145,208));
         gbc = new GridBagConstraints();
         gbc.gridx = 3;
         gbc.gridy = 13;
@@ -966,6 +1339,10 @@ public class HomebaseDefence {
         S9.setMaximumSize(new Dimension(74, 30));
         S9.setMinimumSize(new Dimension(74, 30));
         S9.setText("");
+        S9.setIcon(defaultIcon);
+        S9.setIcon(defaultIcon);
+        S9.setEnabled(false);
+        S9.setBackground(new Color(17,145,208));
         gbc = new GridBagConstraints();
         gbc.gridx = 4;
         gbc.gridy = 13;
