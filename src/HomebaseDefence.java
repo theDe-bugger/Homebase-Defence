@@ -65,6 +65,7 @@ public class HomebaseDefence {
     ImageIcon defaultIcon = new ImageIcon(getClass().getResource("/defaultIcon.jpg"));
     ImageIcon chosenIcon = new ImageIcon(getClass().getResource("/chosenIcon.png"));
     int numberDestroyed;
+    int score;
     int numHealth;
     ArrayList <Integer> pattern = new ArrayList<>();
     ArrayList <Integer> ipattern = new ArrayList<>();
@@ -75,6 +76,7 @@ public class HomebaseDefence {
     int max = 9;
     int min = 1;
     int delay = 1000;
+    
 
     public HomebaseDefence() {
         simonDisable();
@@ -676,6 +678,8 @@ public class HomebaseDefence {
             UpdateAsteroidLoc();
             NewAsteroid();
             numDestroyed.setText("Destroyed: " + numberDestroyed);
+            score = numDestroyed * 5 * round;
+            scoreNum.setText("Score: " + score);
         }
     }
 
