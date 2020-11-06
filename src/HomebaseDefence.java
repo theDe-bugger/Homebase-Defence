@@ -217,9 +217,6 @@ public class HomebaseDefence {
     });
     S7.addActionListener(new ActionListener() {
         @Override
-        public void actionPerformed(ActionEvent e) {
-            Timer timer = new Timer(1000, null);
-            timer.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     if (ipattern.size() < patternSize-1) {
                         ipattern.add(7);
@@ -234,17 +231,9 @@ public class HomebaseDefence {
                         checkPattern();
                     }
                 }
-            });
-            // starts timer to animate the game better
-            timer.start();
-            timer.setRepeats(false);
-        }
     });
     S8.addActionListener(new ActionListener() {
         @Override
-        public void actionPerformed(ActionEvent e) {
-            Timer timer = new Timer(1000, null);
-            timer.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     if (ipattern.size() < patternSize-1) {
                         ipattern.add(8);
@@ -259,11 +248,6 @@ public class HomebaseDefence {
                         checkPattern();
                     }
                 }
-            });
-            // starts timer to animate the game better
-            timer.start();
-            timer.setRepeats(false);
-        }
     });
     S9.addActionListener(new ActionListener() {
         @Override
@@ -810,16 +794,14 @@ public class HomebaseDefence {
             if (inputPattern[i] != simonPattern[i]) {
                 check = "wrong";
                 break;
-            } else {
-                continue;
             }
         }
         // call asteroids and reset input pattern to blank
         inputPattern = new Integer[0];
         ipattern.clear();
         Asteroids(check);
-        numDestroyed.setText("Destroyed: " + numberDestroyed);
-        scoreNum.setText("Score: " + score);
+        numDestroyed.setText("Destroyed: " + String.valueOf(numberDestroyed));
+        scoreNum.setText("Score: " + String.valueOf(score));
         patternSize++;
         if (patternSize == 8){
             patternSize = 3;
