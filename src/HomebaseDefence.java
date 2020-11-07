@@ -671,7 +671,6 @@ public class HomebaseDefence {
                 }
                 if (numHealth == 0) {
                     healthBar.setIcon(noH);
-                    // startResetButton.doClick();
                 }
                 if(asteroidLoc[24][1].equals("asteroid")){
                     spot24.setIcon(space);
@@ -685,11 +684,6 @@ public class HomebaseDefence {
                     spot20.setIcon(space);
                 }
                 UpdateAsteroidLoc();
-            }
-            if (numHealth == 0 && score > highScores) {
-                highScores = score;
-                HighScore();
-                // startResetButton.doClick();
             }
             if (asteroidLoc[19][1].equals("asteroid")) {
                 spot19.setIcon(space);
@@ -785,6 +779,7 @@ public class HomebaseDefence {
         if (newLoc == 4) spot4.setIcon(asteroid);
         UpdateAsteroidLoc();
     }
+    
     public void simonDisable() {
         S1.setDisabledIcon(defaultIcon);
         S1.setEnabled(false);
@@ -906,15 +901,22 @@ public class HomebaseDefence {
         numDestroyed.setText("Destroyed: " + String.valueOf(numberDestroyed));
         scoreNum.setText("Score: " + String.valueOf(score));
         patternSize++;
-        if (patternSize == 8){
+        if (patternSize == 8 && numHealth != 0){
             patternSize = 3;
             round++;
             pattern.clear();
             ipattern.clear();
             simonSays();
+        } else if (numHealth==0){
+            if (score > highScores) {
+                highScores = score;
+                HighScore();
+            }
+            simonDisable();
         } else{
             simonSays();
         }
+        
     }
     public static void main(String[] args) {
         JFrame frame = new JFrame("Homebase Defence");
