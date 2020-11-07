@@ -110,7 +110,7 @@ public class HomebaseDefence {
                 patternSize = 3;
                 round = 1;
                 delay = 1000;
-                SimonSays();
+                simonSays();
             }
             });
         exitButton.addActionListener(new ActionListener() {
@@ -835,7 +835,7 @@ public class HomebaseDefence {
         S9.setIcon(defaultIcon);
         S9.setDisabledIcon(defaultIcon);
     }
-    public void displaySimon(){
+    public void simonSays(){
 
         // set timer to round speed
         if (patternSize == 3) {
@@ -890,12 +890,6 @@ public class HomebaseDefence {
         timer.start();
     }
 
-    public void SimonSays() {
-
-        // show the pattern of certain length
-        displaySimon();
-
-    }
     public void checkPattern(){
         inputPattern = new Integer[0];
         inputPattern = ipattern.toArray(inputPattern);
@@ -918,9 +912,9 @@ public class HomebaseDefence {
             round++;
             pattern.clear();
             ipattern.clear();
-            SimonSays();
+            simonSays();
         } else{
-            SimonSays();
+            simonSays();
         }
     }
     public static void main(String[] args) {
