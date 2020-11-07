@@ -73,7 +73,7 @@ public class HomebaseDefence {
     ImageIcon chosenIcon = new ImageIcon(getClass().getResource("/chosenIcon.png"));
     int numberDestroyed;
     int score;
-    int highscores;
+    int highScores;
     int numHealth;
     ArrayList <Integer> pattern = new ArrayList<>();
     ArrayList <Integer> ipattern = new ArrayList<>();
@@ -686,8 +686,8 @@ public class HomebaseDefence {
                 }
                 UpdateAsteroidLoc();
             }
-            if (numHealth == 0 && score > highscores) {
-                highscores = score;
+            if (numHealth == 0 && score > highScores) {
+                highScores = score;
                 HighScore();
                 // startResetButton.doClick();
             }
