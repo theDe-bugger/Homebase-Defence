@@ -845,9 +845,9 @@ public class HomebaseDefence {
         } else if (patternSize > 3) {
             pattern.add((int) ((Math.random() * ((max - min) + 1)) + min));
         }
+
         // converts array list to array
         simonPattern = pattern.toArray(new Integer[0]);
-
         // display each specific button based on patternSize using timer
         double exponent = (-1) * (round-1);
         double time = (1000*((Math.pow(2.0,exponent))));
@@ -858,7 +858,6 @@ public class HomebaseDefence {
             int x=0;
             public void actionPerformed(ActionEvent e){
                 simonDisable();
-                //JOptionPane.showMessageDialog(null, Arrays.toString(simonPattern));
                 if (x <= simonPattern.length-1){
                     if (simonPattern[x] == 1) {
                         S1.setDisabledIcon(chosenIcon);
