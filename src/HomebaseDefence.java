@@ -15,7 +15,6 @@ import javax.xml.transform.stream.StreamResult;
 
 import org.w3c.dom.*;
 import org.xml.sax.*;
-// edit for no reason
 public class HomebaseDefence {
     private JPanel mainPanel;
     private JButton spot0;
@@ -670,6 +669,10 @@ public class HomebaseDefence {
                 else if( numHealth == 1){
                     healthBar.setIcon(oneH);
                 }
+                if (numHealth == 0) {
+                    healthBar.setIcon(noH);
+                    // startResetButton.doClick();
+                }
                 if(asteroidLoc[24][1].equals("asteroid")){
                     spot24.setIcon(space);
                 } else if (asteroidLoc[23][1].equals("asteroid")){
@@ -678,11 +681,10 @@ public class HomebaseDefence {
                     spot22.setIcon(space);
                 } else if (asteroidLoc[21][1].equals("asteroid")){
                     spot21.setIcon(space);
+                } else if (asteroidLoc[20][1].equals("asteroid")){
+                    spot20.setIcon(space);
                 }
-                if (numHealth == 0) {
-                    healthBar.setIcon(noH);
-                    // startResetButton.doClick();
-                }
+                UpdateAsteroidLoc();
             }
             if (numHealth == 0 && score > highscores) {
                 highscores = score;
