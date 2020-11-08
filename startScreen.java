@@ -113,7 +113,7 @@ public class startScreen extends javax.swing.JFrame {
         System.exit(0);
     }    
     private void btnPlayActionPerformed(java.awt.event.ActionEvent evt) {                                        
-        HomebaseDefence play = new HomebaseDefence(this);
+        HomebaseDefence play = new HomebaseDefence();
     }                                    
 
     /**
