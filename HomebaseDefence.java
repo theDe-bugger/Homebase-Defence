@@ -1004,7 +1004,7 @@ public class HomebaseDefence {
             simonSays();
         }
     }
-    public static void main(String[] args) {
+    public static void main() {
         JFrame frame = new JFrame("Homebase Defence");
         frame.setContentPane(new HomebaseDefence().mainPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

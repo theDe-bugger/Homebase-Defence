@@ -77,6 +77,11 @@ public class startScreen extends javax.swing.JFrame {
         gameOver.setBounds(20, 250, 670, 60);
 
         btnPlay.setText("Play Game");
+        btnPlay.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPlayActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnPlay);
         btnPlay.setBounds(480, 330, 97, 29);
 
@@ -112,10 +117,10 @@ public class startScreen extends javax.swing.JFrame {
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {                                        
         System.exit(0);
     }    
-    private void btnPlayActionPerformed(java.awt.event.ActionEvent evt) {   
-        HomebaseDefence play = new HomebaseDefence();                             
-        //HomebaseDefence.main(null);
-        //dispose();
+    private void btnPlayActionPerformed(java.awt.event.ActionEvent evt) {                            
+        
+        HomebaseDefence.main();
+        dispose();
     }                                    
 
     /**
