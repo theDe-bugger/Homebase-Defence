@@ -59,18 +59,18 @@ public class HomebaseDefence {
     private JButton healthBar;
     private JButton exitButton;
     String[][] asteroidLoc = new String[25][2];
-    ImageIcon asteroid = new ImageIcon(getClass().getResource("/asteroidIMG.png"));
-    ImageIcon space = new ImageIcon(getClass().getResource("/spaceBG.png"));
-    ImageIcon fullH = new ImageIcon(getClass().getResource("/fullH.jpg"));
-    ImageIcon sixH = new ImageIcon(getClass().getResource("/sixH.jpg"));
-    ImageIcon fiveH = new ImageIcon(getClass().getResource("/fiveH.jpg"));
-    ImageIcon fourH = new ImageIcon(getClass().getResource("/fourH.jpg"));
-    ImageIcon threeH = new ImageIcon(getClass().getResource("/threeH.jpg"));
-    ImageIcon twoH = new ImageIcon(getClass().getResource("/twoH.jpg"));
-    ImageIcon oneH = new ImageIcon(getClass().getResource("/oneH.jpg"));
-    ImageIcon noH = new ImageIcon(getClass().getResource("/noH.jpg"));
-    ImageIcon defaultIcon = new ImageIcon(getClass().getResource("/defaultIcon.jpg"));
-    ImageIcon chosenIcon = new ImageIcon(getClass().getResource("/chosenIcon.png"));
+    ImageIcon asteroid = new ImageIcon(getClass().getResource("/Assets/Images/asteroidIMG.png"));
+    ImageIcon space = new ImageIcon(getClass().getResource("/Assets/Images/spaceBG.png"));
+    ImageIcon fullH = new ImageIcon(getClass().getResource("/Assets/Images/fullH.jpg"));
+    ImageIcon sixH = new ImageIcon(getClass().getResource("/Assets/Images/sixH.jpg"));
+    ImageIcon fiveH = new ImageIcon(getClass().getResource("/Assets/Images/fiveH.jpg"));
+    ImageIcon fourH = new ImageIcon(getClass().getResource("/Assets/Images/fourH.jpg"));
+    ImageIcon threeH = new ImageIcon(getClass().getResource("/Assets/Images/threeH.jpg"));
+    ImageIcon twoH = new ImageIcon(getClass().getResource("/Assets/Images/twoH.jpg"));
+    ImageIcon oneH = new ImageIcon(getClass().getResource("/Assets/Images/oneH.jpg"));
+    ImageIcon noH = new ImageIcon(getClass().getResource("/Assets/Images/noH.jpg"));
+    ImageIcon defaultIcon = new ImageIcon(getClass().getResource("/Assets/Images/defaultIcon.jpg"));
+    ImageIcon chosenIcon = new ImageIcon(getClass().getResource("/Assets/Images/chosenIcon.png"));
     int numberDestroyed;
     int score;
     int highScores;
@@ -278,7 +278,7 @@ public class HomebaseDefence {
     public void HighScore() {
         try {
             String name = "Player 1";
-            String filepath = "./HighScore.xml";
+            String filepath = "./Assets/XML/HighScore.xml";
             DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
             Document doc = docBuilder.parse(filepath);
@@ -319,7 +319,7 @@ public class HomebaseDefence {
     public void HighScoreBegin() {
         try {
             String name = "";
-            String filepath = "./HighScore.xml";
+            String filepath = "./Assets/XML/HighScore.xml";
             DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
             Document doc = docBuilder.parse(filepath);
@@ -898,8 +898,8 @@ public class HomebaseDefence {
         inputPattern = new Integer[0];
         ipattern.clear();
         Asteroids(check);
-        numDestroyed.setText("Destroyed: " + String.valueOf(numberDestroyed));
-        scoreNum.setText("Score: " + String.valueOf(score));
+        numDestroyed.setText("Destroyed: " + numberDestroyed);
+        scoreNum.setText("Score: " + score);
         patternSize++;
         if (patternSize == 8 && numHealth != 0){
             patternSize = 3;
@@ -949,7 +949,7 @@ public class HomebaseDefence {
         spot0.setBackground(new Color(-16777216));
         spot0.setBorderPainted(false);
         spot0.setContentAreaFilled(false);
-        spot0.setIcon(new ImageIcon(getClass().getResource("/spaceBG.png")));
+        spot0.setIcon(new ImageIcon(getClass().getResource("/Assets/Images/spaceBG.png")));
         spot0.setRequestFocusEnabled(false);
         spot0.setRolloverEnabled(false);
         spot0.setText("");
@@ -965,7 +965,7 @@ public class HomebaseDefence {
         spot1.setBackground(new Color(-16777216));
         spot1.setBorderPainted(false);
         spot1.setContentAreaFilled(false);
-        spot1.setIcon(new ImageIcon(getClass().getResource("/spaceBG.png")));
+        spot1.setIcon(new ImageIcon(getClass().getResource("/Assets/Images/spaceBG.png")));
         spot1.setRequestFocusEnabled(false);
         spot1.setRolloverEnabled(false);
         spot1.setText("");
@@ -979,7 +979,7 @@ public class HomebaseDefence {
         spot2.setBackground(new Color(-16777216));
         spot2.setBorderPainted(false);
         spot2.setContentAreaFilled(false);
-        spot2.setIcon(new ImageIcon(getClass().getResource("/spaceBG.png")));
+        spot2.setIcon(new ImageIcon(getClass().getResource("/Assets/Images/spaceBG.png")));
         spot2.setRequestFocusEnabled(false);
         spot2.setRolloverEnabled(false);
         spot2.setText("");
@@ -993,7 +993,7 @@ public class HomebaseDefence {
         spot3.setBackground(new Color(-16777216));
         spot3.setBorderPainted(false);
         spot3.setContentAreaFilled(false);
-        spot3.setIcon(new ImageIcon(getClass().getResource("/spaceBG.png")));
+        spot3.setIcon(new ImageIcon(getClass().getResource("/Assets/Images/spaceBG.png")));
         spot3.setRequestFocusEnabled(false);
         spot3.setRolloverEnabled(false);
         spot3.setText("");
@@ -1007,7 +1007,7 @@ public class HomebaseDefence {
         spot4.setBackground(new Color(-16777216));
         spot4.setBorderPainted(false);
         spot4.setContentAreaFilled(false);
-        spot4.setIcon(new ImageIcon(getClass().getResource("/spaceBG.png")));
+        spot4.setIcon(new ImageIcon(getClass().getResource("/Assets/Images/spaceBG.png")));
         spot4.setRequestFocusEnabled(false);
         spot4.setRolloverEnabled(false);
         spot4.setText("");
@@ -1022,7 +1022,7 @@ public class HomebaseDefence {
         spot5.setBackground(new Color(-16777216));
         spot5.setBorderPainted(false);
         spot5.setContentAreaFilled(false);
-        spot5.setIcon(new ImageIcon(getClass().getResource("/spaceBG.png")));
+        spot5.setIcon(new ImageIcon(getClass().getResource("/Assets/Images/spaceBG.png")));
         spot5.setRequestFocusEnabled(false);
         spot5.setRolloverEnabled(false);
         spot5.setText("");
@@ -1037,7 +1037,7 @@ public class HomebaseDefence {
         spot6.setBackground(new Color(-16777216));
         spot6.setBorderPainted(false);
         spot6.setContentAreaFilled(false);
-        spot6.setIcon(new ImageIcon(getClass().getResource("/spaceBG.png")));
+        spot6.setIcon(new ImageIcon(getClass().getResource("/Assets/Images/spaceBG.png")));
         spot6.setRequestFocusEnabled(false);
         spot6.setRolloverEnabled(false);
         spot6.setText("");
@@ -1051,7 +1051,7 @@ public class HomebaseDefence {
         spot7.setBackground(new Color(-16777216));
         spot7.setBorderPainted(false);
         spot7.setContentAreaFilled(false);
-        spot7.setIcon(new ImageIcon(getClass().getResource("/spaceBG.png")));
+        spot7.setIcon(new ImageIcon(getClass().getResource("/Assets/Images/spaceBG.png")));
         spot7.setRequestFocusEnabled(false);
         spot7.setRolloverEnabled(false);
         spot7.setText("");
@@ -1065,7 +1065,7 @@ public class HomebaseDefence {
         spot8.setBackground(new Color(-16777216));
         spot8.setBorderPainted(false);
         spot8.setContentAreaFilled(false);
-        spot8.setIcon(new ImageIcon(getClass().getResource("/spaceBG.png")));
+        spot8.setIcon(new ImageIcon(getClass().getResource("/Assets/Images/spaceBG.png")));
         spot8.setRequestFocusEnabled(false);
         spot8.setRolloverEnabled(false);
         spot8.setText("");
@@ -1079,7 +1079,7 @@ public class HomebaseDefence {
         spot9.setBackground(new Color(-16777216));
         spot9.setBorderPainted(false);
         spot9.setContentAreaFilled(false);
-        spot9.setIcon(new ImageIcon(getClass().getResource("/spaceBG.png")));
+        spot9.setIcon(new ImageIcon(getClass().getResource("/Assets/Images/spaceBG.png")));
         spot9.setRequestFocusEnabled(false);
         spot9.setRolloverEnabled(false);
         spot9.setText("");
@@ -1095,7 +1095,7 @@ public class HomebaseDefence {
         spot20.setBorderPainted(false);
         spot20.setContentAreaFilled(false);
         spot20.setFocusPainted(false);
-        spot20.setIcon(new ImageIcon(getClass().getResource("/spaceBG.png")));
+        spot20.setIcon(new ImageIcon(getClass().getResource("/Assets/Images/spaceBG.png")));
         spot20.setRequestFocusEnabled(false);
         spot20.setRolloverEnabled(false);
         spot20.setText("");
@@ -1110,7 +1110,7 @@ public class HomebaseDefence {
         spot16.setBackground(new Color(-16777216));
         spot16.setBorderPainted(false);
         spot16.setContentAreaFilled(false);
-        spot16.setIcon(new ImageIcon(getClass().getResource("/spaceBG.png")));
+        spot16.setIcon(new ImageIcon(getClass().getResource("/Assets/Images/spaceBG.png")));
         spot16.setRequestFocusEnabled(false);
         spot16.setRolloverEnabled(false);
         spot16.setText("");
@@ -1124,7 +1124,7 @@ public class HomebaseDefence {
         spot12.setBackground(new Color(-16777216));
         spot12.setBorderPainted(false);
         spot12.setContentAreaFilled(false);
-        spot12.setIcon(new ImageIcon(getClass().getResource("/spaceBG.png")));
+        spot12.setIcon(new ImageIcon(getClass().getResource("/Assets/Images/spaceBG.png")));
         spot12.setRequestFocusEnabled(false);
         spot12.setRolloverEnabled(false);
         spot12.setText("");
@@ -1138,7 +1138,7 @@ public class HomebaseDefence {
         spot10.setBackground(new Color(-16777216));
         spot10.setBorderPainted(false);
         spot10.setContentAreaFilled(false);
-        spot10.setIcon(new ImageIcon(getClass().getResource("/spaceBG.png")));
+        spot10.setIcon(new ImageIcon(getClass().getResource("/Assets/Images/spaceBG.png")));
         spot10.setRequestFocusEnabled(false);
         spot10.setRolloverEnabled(false);
         spot10.setText("");
@@ -1153,7 +1153,7 @@ public class HomebaseDefence {
         spot11.setBackground(new Color(-16777216));
         spot11.setBorderPainted(false);
         spot11.setContentAreaFilled(false);
-        spot11.setIcon(new ImageIcon(getClass().getResource("/spaceBG.png")));
+        spot11.setIcon(new ImageIcon(getClass().getResource("/Assets/Images/spaceBG.png")));
         spot11.setRequestFocusEnabled(false);
         spot11.setRolloverEnabled(false);
         spot11.setText("");
@@ -1167,7 +1167,7 @@ public class HomebaseDefence {
         spot13.setBackground(new Color(-16777216));
         spot13.setBorderPainted(false);
         spot13.setContentAreaFilled(false);
-        spot13.setIcon(new ImageIcon(getClass().getResource("/spaceBG.png")));
+        spot13.setIcon(new ImageIcon(getClass().getResource("/Assets/Images/spaceBG.png")));
         spot13.setRequestFocusEnabled(false);
         spot13.setRolloverEnabled(false);
         spot13.setText("");
@@ -1181,7 +1181,7 @@ public class HomebaseDefence {
         spot14.setBackground(new Color(-16777216));
         spot14.setBorderPainted(false);
         spot14.setContentAreaFilled(false);
-        spot14.setIcon(new ImageIcon(getClass().getResource("/spaceBG.png")));
+        spot14.setIcon(new ImageIcon(getClass().getResource("/Assets/Images/spaceBG.png")));
         spot14.setRequestFocusEnabled(false);
         spot14.setRolloverEnabled(false);
         spot14.setText("");
@@ -1196,7 +1196,7 @@ public class HomebaseDefence {
         spot19.setBackground(new Color(-16777216));
         spot19.setBorderPainted(false);
         spot19.setContentAreaFilled(false);
-        spot19.setIcon(new ImageIcon(getClass().getResource("/spaceBG.png")));
+        spot19.setIcon(new ImageIcon(getClass().getResource("/Assets/Images/spaceBG.png")));
         spot19.setRequestFocusEnabled(false);
         spot19.setRolloverEnabled(false);
         spot19.setText("");
@@ -1211,7 +1211,7 @@ public class HomebaseDefence {
         spot24.setBackground(new Color(-16777216));
         spot24.setBorderPainted(false);
         spot24.setContentAreaFilled(false);
-        spot24.setIcon(new ImageIcon(getClass().getResource("/spaceBG.png")));
+        spot24.setIcon(new ImageIcon(getClass().getResource("/Assets/Images/spaceBG.png")));
         spot24.setRequestFocusEnabled(false);
         spot24.setRolloverEnabled(false);
         spot24.setText("");
@@ -1226,7 +1226,7 @@ public class HomebaseDefence {
         spot23.setBackground(new Color(-16777216));
         spot23.setBorderPainted(false);
         spot23.setContentAreaFilled(false);
-        spot23.setIcon(new ImageIcon(getClass().getResource("/spaceBG.png")));
+        spot23.setIcon(new ImageIcon(getClass().getResource("/Assets/Images/spaceBG.png")));
         spot23.setRequestFocusEnabled(false);
         spot23.setRolloverEnabled(false);
         spot23.setText("");
@@ -1240,7 +1240,7 @@ public class HomebaseDefence {
         spot18.setBackground(new Color(-16777216));
         spot18.setBorderPainted(false);
         spot18.setContentAreaFilled(false);
-        spot18.setIcon(new ImageIcon(getClass().getResource("/spaceBG.png")));
+        spot18.setIcon(new ImageIcon(getClass().getResource("/Assets/Images/spaceBG.png")));
         spot18.setRequestFocusEnabled(false);
         spot18.setRolloverEnabled(false);
         spot18.setText("");
@@ -1254,7 +1254,7 @@ public class HomebaseDefence {
         spot17.setBackground(new Color(-16777216));
         spot17.setBorderPainted(false);
         spot17.setContentAreaFilled(false);
-        spot17.setIcon(new ImageIcon(getClass().getResource("/spaceBG.png")));
+        spot17.setIcon(new ImageIcon(getClass().getResource("/Assets/Images/spaceBG.png")));
         spot17.setRequestFocusEnabled(false);
         spot17.setRolloverEnabled(false);
         spot17.setText("");
@@ -1268,7 +1268,7 @@ public class HomebaseDefence {
         spot22.setBackground(new Color(-16777216));
         spot22.setBorderPainted(false);
         spot22.setContentAreaFilled(false);
-        spot22.setIcon(new ImageIcon(getClass().getResource("/spaceBG.png")));
+        spot22.setIcon(new ImageIcon(getClass().getResource("/Assets/Images/spaceBG.png")));
         spot22.setRequestFocusEnabled(false);
         spot22.setRolloverEnabled(false);
         spot22.setText("");
@@ -1282,7 +1282,7 @@ public class HomebaseDefence {
         spot21.setBackground(new Color(-16777216));
         spot21.setBorderPainted(false);
         spot21.setContentAreaFilled(false);
-        spot21.setIcon(new ImageIcon(getClass().getResource("/spaceBG.png")));
+        spot21.setIcon(new ImageIcon(getClass().getResource("/Assets/Images/spaceBG.png")));
         spot21.setRequestFocusEnabled(false);
         spot21.setRolloverEnabled(false);
         spot21.setText("");
@@ -1298,7 +1298,7 @@ public class HomebaseDefence {
         spot15.setContentAreaFilled(false);
         spot15.setFocusPainted(false);
         spot15.setFocusable(false);
-        spot15.setIcon(new ImageIcon(getClass().getResource("/spaceBG.png")));
+        spot15.setIcon(new ImageIcon(getClass().getResource("/Assets/Images/spaceBG.png")));
         spot15.setRequestFocusEnabled(false);
         spot15.setRolloverEnabled(false);
         spot15.setText("");
@@ -1507,7 +1507,7 @@ public class HomebaseDefence {
         button1.setContentAreaFilled(false);
         button1.setFocusPainted(false);
         button1.setFocusable(false);
-        button1.setIcon(new ImageIcon(getClass().getResource("/shipP1.png")));
+        button1.setIcon(new ImageIcon(getClass().getResource("/Assets/Images/shipP1.png")));
         button1.setRequestFocusEnabled(false);
         button1.setRolloverEnabled(false);
         button1.setText("");
@@ -1524,7 +1524,7 @@ public class HomebaseDefence {
         button2.setContentAreaFilled(false);
         button2.setFocusPainted(false);
         button2.setFocusable(false);
-        button2.setIcon(new ImageIcon(getClass().getResource("/shipP2.png")));
+        button2.setIcon(new ImageIcon(getClass().getResource("/Assets/Images/shipP2.png")));
         button2.setRequestFocusEnabled(false);
         button2.setRolloverEnabled(false);
         button2.setText("");
@@ -1541,7 +1541,7 @@ public class HomebaseDefence {
         button3.setContentAreaFilled(false);
         button3.setFocusPainted(false);
         button3.setFocusable(false);
-        button3.setIcon(new ImageIcon(getClass().getResource("/shipP3.png")));
+        button3.setIcon(new ImageIcon(getClass().getResource("/Assets/Images/shipP3.png")));
         button3.setRequestFocusEnabled(false);
         button3.setRolloverEnabled(false);
         button3.setText("");
@@ -1558,7 +1558,7 @@ public class HomebaseDefence {
         button4.setContentAreaFilled(false);
         button4.setFocusPainted(false);
         button4.setFocusable(false);
-        button4.setIcon(new ImageIcon(getClass().getResource("/shipP4.png")));
+        button4.setIcon(new ImageIcon(getClass().getResource("/Assets/Images/shipP4.png")));
         button4.setRequestFocusEnabled(false);
         button4.setRolloverEnabled(false);
         button4.setText("");
@@ -1575,7 +1575,7 @@ public class HomebaseDefence {
         button5.setContentAreaFilled(false);
         button5.setFocusPainted(false);
         button5.setFocusable(false);
-        button5.setIcon(new ImageIcon(getClass().getResource("/shipP5.png")));
+        button5.setIcon(new ImageIcon(getClass().getResource("/Assets/Images/shipP5.png")));
         button5.setRequestFocusEnabled(false);
         button5.setRolloverEnabled(false);
         button5.setText("");
@@ -1635,7 +1635,7 @@ public class HomebaseDefence {
         healthBar.setBorderPainted(false);
         healthBar.setFocusPainted(false);
         healthBar.setFocusable(false);
-        healthBar.setIcon(new ImageIcon(getClass().getResource("/fullH.jpg")));
+        healthBar.setIcon(new ImageIcon(getClass().getResource("/Assets/Images/fullH.jpg")));
         healthBar.setRequestFocusEnabled(false);
         healthBar.setRolloverEnabled(false);
         healthBar.setText("");
