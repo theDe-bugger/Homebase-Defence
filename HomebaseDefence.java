@@ -87,6 +87,7 @@ public class HomebaseDefence {
     int delay = 1000;
 
     public HomebaseDefence() {
+        
         simonDisable();
         startResetButton.addActionListener(new ActionListener() {
             @Override
@@ -1006,6 +1007,49 @@ public class HomebaseDefence {
     }
     public static void main(String[] args) {
         JFrame frame = new JFrame("Homebase Defence");
+        JLabel title = new JLabel("Welcome to Homebase Defence!");
+        JLabel space = new JLabel("");
+        JLabel instruct = new JLabel("How to Play:");
+        JLabel goal = new JLabel("* The goal of the game is to destroy as many asteroids as possible to defend your Homebase!");
+        JLabel match = new JLabel("* Match the pattern at the bottom of the screen to destory an asteroid.");
+        JLabel points = new JLabel("* Each broken asteroid is worth 5 points. In the next round, each asteroid destroyed is worth 5 more points.");
+        JLabel notMatched = new JLabel("* If you fail to match the pattern, asteroids move one step closer to your Homebase.");
+        JLabel health = new JLabel("* Each time an asteroid hits your Homebase, you will lose health.");
+        JLabel gameOver = new JLabel("* If you have no health remaining, the game is over.");
+                    
+        title.setFont(new Font("Calibri", Font.BOLD, 36));
+        title.setHorizontalAlignment(SwingConstants.CENTER);
+        title.setForeground(Color.white);
+                
+        instruct.setFont(new Font("Calibri", Font.LAYOUT_LEFT_TO_RIGHT, 26));
+        instruct.setForeground(Color.white);
+                
+        goal.setFont(new Font("Calibri", Font.LAYOUT_LEFT_TO_RIGHT, 16));
+        goal.setForeground(Color.white);
+                
+        match.setFont(new Font("Calibri", Font.LAYOUT_LEFT_TO_RIGHT, 16));
+        match.setForeground(Color.white);
+                
+        points.setFont(new Font("Calibri", Font.LAYOUT_LEFT_TO_RIGHT, 16));
+        points.setForeground(Color.white);
+                
+        notMatched.setFont(new Font("Calibri", Font.LAYOUT_LEFT_TO_RIGHT, 16));
+        notMatched.setForeground(Color.white);
+                
+        health.setFont(new Font("Calibri", Font.LAYOUT_LEFT_TO_RIGHT, 16));
+        health.setForeground(Color.white);
+                
+        gameOver.setFont(new Font("Calibri", Font.LAYOUT_LEFT_TO_RIGHT, 16));
+        gameOver.setForeground(Color.white);
+                
+        UIManager.put("OptionPane.background", Color.black);
+        UIManager.put("Panel.background", Color.black);
+        UIManager.put("Button.background", Color.white);
+        UIManager.put("OptionPane.okButtonText", "Play Game");
+             
+        JLabel[] arr = {title, space, instruct, goal, match, points, notMatched, health, gameOver};
+        JOptionPane.showMessageDialog(null, arr, "", JOptionPane.PLAIN_MESSAGE);
+        
         frame.setContentPane(new HomebaseDefence().mainPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(390, 755);
