@@ -6,7 +6,6 @@ import java.util.Random;
 import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.List;
-import java.awt.Color;
 import java.io.*;
 import javax.xml.parsers.*;
 import javax.xml.transform.*;
@@ -15,6 +14,7 @@ import javax.xml.transform.stream.StreamResult;
 
 import org.w3c.dom.*;
 import org.xml.sax.*;
+
 public class HomebaseDefence {
     private JPanel mainPanel;
     private JButton spot0;
@@ -74,9 +74,10 @@ public class HomebaseDefence {
     int numberDestroyed;
     int score;
     int highScores;
+    String names;
     int numHealth;
-    ArrayList <Integer> pattern = new ArrayList<>();
-    ArrayList <Integer> ipattern = new ArrayList<>();
+    ArrayList<Integer> pattern = new ArrayList<>();
+    ArrayList<Integer> ipattern = new ArrayList<>();
     Integer[] simonPattern;
     Integer[] inputPattern;
     int patternSize = 3;
@@ -84,7 +85,7 @@ public class HomebaseDefence {
     int max = 9;
     int min = 1;
     int delay = 1000;
-    
+
     public HomebaseDefence() {
         simonDisable();
         startResetButton.addActionListener(new ActionListener() {
@@ -112,168 +113,168 @@ public class HomebaseDefence {
                 delay = 1000;
                 simonSays();
             }
-            });
+        });
         exitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);
             }
         });
-    // Simon Says input buttons
-    S1.addActionListener(new ActionListener() {
-        @Override
-                public void actionPerformed(ActionEvent e) {
-                    if (ipattern.size() < patternSize-1) {
-                        ipattern.add(1);
-                        simonDisable();
-                        // change icon of button to different colour
-                        S1.setDisabledIcon(chosenIcon);
-                        simonDisable();
-                        simonEnable();
-                    } else if(ipattern.size() == patternSize-1) {
-                        ipattern.add(1);
-                        simonDisable();
-                        checkPattern();
-                    }
+        // Simon Says input buttons
+        S1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (ipattern.size() < patternSize - 1) {
+                    ipattern.add(1);
+                    simonDisable();
+                    // change icon of button to different colour
+                    S1.setDisabledIcon(chosenIcon);
+                    simonDisable();
+                    simonEnable();
+                } else if (ipattern.size() == patternSize - 1) {
+                    ipattern.add(1);
+                    simonDisable();
+                    checkPattern();
                 }
-    });
-    S2.addActionListener(new ActionListener() {
-        @Override
-                public void actionPerformed(ActionEvent e) {
-                    if (ipattern.size() < patternSize-1) {
-                        ipattern.add(2);
-                        simonDisable();
-                        // change icon of button to different colour
-                        S2.setDisabledIcon(chosenIcon);
-                        simonDisable();
-                        simonEnable();
-                    } else if( ipattern.size() == patternSize-1) {
-                        ipattern.add(2);
-                        simonDisable();
-                        checkPattern();
-                    }
+            }
+        });
+        S2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (ipattern.size() < patternSize - 1) {
+                    ipattern.add(2);
+                    simonDisable();
+                    // change icon of button to different colour
+                    S2.setDisabledIcon(chosenIcon);
+                    simonDisable();
+                    simonEnable();
+                } else if (ipattern.size() == patternSize - 1) {
+                    ipattern.add(2);
+                    simonDisable();
+                    checkPattern();
                 }
-    });
-    S3.addActionListener(new ActionListener() {
-        @Override
-                public void actionPerformed(ActionEvent e) {
-                    if (ipattern.size() < patternSize-1) {
-                        ipattern.add(3);
-                        simonDisable();
-                        // change icon of button to different colour
-                        S3.setDisabledIcon(chosenIcon);
-                        simonDisable();
-                        simonEnable();
-                    } else if( ipattern.size() == patternSize-1) {
-                        ipattern.add(3);
-                        simonDisable();
-                        checkPattern();
-                    }
+            }
+        });
+        S3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (ipattern.size() < patternSize - 1) {
+                    ipattern.add(3);
+                    simonDisable();
+                    // change icon of button to different colour
+                    S3.setDisabledIcon(chosenIcon);
+                    simonDisable();
+                    simonEnable();
+                } else if (ipattern.size() == patternSize - 1) {
+                    ipattern.add(3);
+                    simonDisable();
+                    checkPattern();
                 }
-    });
-    S4.addActionListener(new ActionListener() {
-        @Override
-                public void actionPerformed(ActionEvent e) {
-                    if (ipattern.size() < patternSize-1) {
-                        ipattern.add(4);
-                        simonDisable();
-                        // change icon of button to different colour
-                        S4.setDisabledIcon(chosenIcon);
-                        simonDisable();
-                        simonEnable();
-                    } else if( ipattern.size() == patternSize-1) {
-                        ipattern.add(4);
-                        simonDisable();
-                        checkPattern();
-                    }
+            }
+        });
+        S4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (ipattern.size() < patternSize - 1) {
+                    ipattern.add(4);
+                    simonDisable();
+                    // change icon of button to different colour
+                    S4.setDisabledIcon(chosenIcon);
+                    simonDisable();
+                    simonEnable();
+                } else if (ipattern.size() == patternSize - 1) {
+                    ipattern.add(4);
+                    simonDisable();
+                    checkPattern();
                 }
-    });
-    S5.addActionListener(new ActionListener() {
-        @Override
-                public void actionPerformed(ActionEvent e) {
-                    if (ipattern.size() < patternSize-1) {
-                        ipattern.add(5);
-                        simonDisable();
-                        // change icon of button to different colour
-                        S5.setDisabledIcon(chosenIcon);
-                        simonDisable();
-                        simonEnable();
-                    } else if( ipattern.size() == patternSize-1) {
-                        ipattern.add(5);
-                        simonDisable();
-                        checkPattern();
-                    }
+            }
+        });
+        S5.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (ipattern.size() < patternSize - 1) {
+                    ipattern.add(5);
+                    simonDisable();
+                    // change icon of button to different colour
+                    S5.setDisabledIcon(chosenIcon);
+                    simonDisable();
+                    simonEnable();
+                } else if (ipattern.size() == patternSize - 1) {
+                    ipattern.add(5);
+                    simonDisable();
+                    checkPattern();
                 }
-    });
-    S6.addActionListener(new ActionListener() {
-        @Override
-                public void actionPerformed(ActionEvent e) {
-                    if (ipattern.size() < patternSize-1) {
-                        ipattern.add(6);
-                        simonDisable();
-                        // change icon of button to different colour
-                        S6.setDisabledIcon(chosenIcon);
-                        simonDisable();
-                        simonEnable();
-                    } else if(ipattern.size() == patternSize-1) {
-                        ipattern.add(6);
-                        simonDisable();
-                        checkPattern();
-                    }
+            }
+        });
+        S6.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (ipattern.size() < patternSize - 1) {
+                    ipattern.add(6);
+                    simonDisable();
+                    // change icon of button to different colour
+                    S6.setDisabledIcon(chosenIcon);
+                    simonDisable();
+                    simonEnable();
+                } else if (ipattern.size() == patternSize - 1) {
+                    ipattern.add(6);
+                    simonDisable();
+                    checkPattern();
                 }
-    });
-    S7.addActionListener(new ActionListener() {
-        @Override
-                public void actionPerformed(ActionEvent e) {
-                    if (ipattern.size() < patternSize-1) {
-                        ipattern.add(7);
-                        simonDisable();
-                        // change icon of button to different colour
-                        S7.setDisabledIcon(chosenIcon);
-                        simonDisable();
-                        simonEnable();
-                    } else if( ipattern.size() == patternSize-1) {
-                        ipattern.add(7);
-                        simonDisable();
-                        checkPattern();
-                    }
+            }
+        });
+        S7.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (ipattern.size() < patternSize - 1) {
+                    ipattern.add(7);
+                    simonDisable();
+                    // change icon of button to different colour
+                    S7.setDisabledIcon(chosenIcon);
+                    simonDisable();
+                    simonEnable();
+                } else if (ipattern.size() == patternSize - 1) {
+                    ipattern.add(7);
+                    simonDisable();
+                    checkPattern();
                 }
-    });
-    S8.addActionListener(new ActionListener() {
-        @Override
-                public void actionPerformed(ActionEvent e) {
-                    if (ipattern.size() < patternSize-1) {
-                        ipattern.add(8);
-                        simonDisable();
-                        // change icon of button to different colour
-                        S8.setDisabledIcon(chosenIcon);
-                        simonDisable();
-                        simonEnable();
-                    } else if(ipattern.size() == patternSize-1) {
-                        ipattern.add(8);
-                        simonDisable();
-                        checkPattern();
-                    }
+            }
+        });
+        S8.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (ipattern.size() < patternSize - 1) {
+                    ipattern.add(8);
+                    simonDisable();
+                    // change icon of button to different colour
+                    S8.setDisabledIcon(chosenIcon);
+                    simonDisable();
+                    simonEnable();
+                } else if (ipattern.size() == patternSize - 1) {
+                    ipattern.add(8);
+                    simonDisable();
+                    checkPattern();
                 }
-    });
-    S9.addActionListener(new ActionListener() {
-        @Override
-                public void actionPerformed(ActionEvent e) {
-                    if (ipattern.size() < patternSize-1) {
-                        ipattern.add(9);
-                        simonDisable();
-                        // change icon of button to different colour
-                        S9.setDisabledIcon(chosenIcon);
-                        simonDisable();
-                        simonEnable();
-                    } else if(ipattern.size() == patternSize-1) {
-                        ipattern.add(9);
-                        simonDisable();
-                        checkPattern();
-                    }
+            }
+        });
+        S9.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (ipattern.size() < patternSize - 1) {
+                    ipattern.add(9);
+                    simonDisable();
+                    // change icon of button to different colour
+                    S9.setDisabledIcon(chosenIcon);
+                    simonDisable();
+                    simonEnable();
+                } else if (ipattern.size() == patternSize - 1) {
+                    ipattern.add(9);
+                    simonDisable();
+                    checkPattern();
                 }
-            });
-}
+            }
+        });
+    }
 
     public void HighScore() {
         try {
@@ -282,17 +283,17 @@ public class HomebaseDefence {
             DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
             Document doc = docBuilder.parse(filepath);
-            
+
             Node a = doc.getElementsByTagName("name").item(0);
-            a.setTextContent(name);
-    
+            a.setTextContent(names);
+
             Node b = doc.getElementsByTagName("score").item(0);
             b.setTextContent(String.valueOf(score));
 
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
             DOMSource source = new DOMSource(doc);
-            StreamResult result =  new StreamResult(new File(filepath));
+            StreamResult result = new StreamResult(new File(filepath));
             transformer.transform(source, result);
 
             doc.getDocumentElement().normalize();
@@ -300,18 +301,18 @@ public class HomebaseDefence {
             for (int i = 0; i < nodeList.getLength(); i++) {
                 Node node = nodeList.item(i);
                 if (node.getNodeType() == Node.ELEMENT_NODE) {
-                    Element eElement = (Element) node;  
-                    highScore.setText(eElement.getElementsByTagName("score").item(0).getTextContent());  
+                    Element eElement = (Element) node;
+                    highScore.setText(eElement.getElementsByTagName("score").item(0).getTextContent());
                     highName.setText(eElement.getElementsByTagName("name").item(0).getTextContent());
                 }
             }
-        } catch(ParserConfigurationException pce) {
+        } catch (ParserConfigurationException pce) {
             pce.printStackTrace();
-        } catch(TransformerException tfe) {
+        } catch (TransformerException tfe) {
             tfe.printStackTrace();
-        } catch(IOException ioe) {
+        } catch (IOException ioe) {
             ioe.printStackTrace();
-        } catch(SAXException sae) {
+        } catch (SAXException sae) {
             sae.printStackTrace();
         }
     }
@@ -327,7 +328,7 @@ public class HomebaseDefence {
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
             DOMSource source = new DOMSource(doc);
-            StreamResult result =  new StreamResult(new File(filepath));
+            StreamResult result = new StreamResult(new File(filepath));
             transformer.transform(source, result);
 
             doc.getDocumentElement().normalize();
@@ -335,21 +336,22 @@ public class HomebaseDefence {
             for (int i = 0; i < nodeList.getLength(); i++) {
                 Node node = nodeList.item(i);
                 if (node.getNodeType() == Node.ELEMENT_NODE) {
-                    Element eElement = (Element) node;  
-                    highScore.setText(eElement.getElementsByTagName("score").item(0).getTextContent());  
+                    Element eElement = (Element) node;
+                    highScore.setText(eElement.getElementsByTagName("score").item(0).getTextContent());
                     highName.setText(eElement.getElementsByTagName("name").item(0).getTextContent());
                 }
             }
-        } catch(ParserConfigurationException pce) {
+        } catch (ParserConfigurationException pce) {
             pce.printStackTrace();
-        } catch(TransformerException tfe) {
+        } catch (TransformerException tfe) {
             tfe.printStackTrace();
-        } catch(IOException ioe) {
+        } catch (IOException ioe) {
             ioe.printStackTrace();
-        } catch(SAXException sae) {
+        } catch (SAXException sae) {
             sae.printStackTrace();
         }
     }
+
     public void AsteroidClear() {
         spot0.setIcon(space);
         spot1.setIcon(space);
@@ -509,7 +511,7 @@ public class HomebaseDefence {
             }
         }
     }
-    
+
     public void Asteroids(String check) {
         if (check.equals("right")) {
             numberDestroyed++;
@@ -649,38 +651,35 @@ public class HomebaseDefence {
             UpdateAsteroidLoc();
             NewAsteroid();
         } else if (check.equals("wrong")) {
-            if (asteroidLoc[24][1].equals("asteroid") || asteroidLoc[23][1].equals("asteroid") || asteroidLoc[22][1].equals("asteroid") || asteroidLoc[21][1].equals("asteroid") || asteroidLoc[20][1].equals("asteroid")) {
+            if (asteroidLoc[24][1].equals("asteroid") || asteroidLoc[23][1].equals("asteroid")
+                    || asteroidLoc[22][1].equals("asteroid") || asteroidLoc[21][1].equals("asteroid")
+                    || asteroidLoc[20][1].equals("asteroid")) {
                 numHealth--;
-                if( numHealth == 6){
+                if (numHealth == 6) {
                     healthBar.setIcon(sixH);
-                }
-                else if( numHealth == 5){
+                } else if (numHealth == 5) {
                     healthBar.setIcon(fiveH);
-                }
-                else if( numHealth == 4){
+                } else if (numHealth == 4) {
                     healthBar.setIcon(fourH);
-                }
-                else if( numHealth == 3){
+                } else if (numHealth == 3) {
                     healthBar.setIcon(threeH);
-                }
-                else if( numHealth == 2){
+                } else if (numHealth == 2) {
                     healthBar.setIcon(twoH);
-                }
-                else if( numHealth == 1){
+                } else if (numHealth == 1) {
                     healthBar.setIcon(oneH);
                 }
                 if (numHealth == 0) {
                     healthBar.setIcon(noH);
                 }
-                if(asteroidLoc[24][1].equals("asteroid")){
+                if (asteroidLoc[24][1].equals("asteroid")) {
                     spot24.setIcon(space);
-                } else if (asteroidLoc[23][1].equals("asteroid")){
+                } else if (asteroidLoc[23][1].equals("asteroid")) {
                     spot23.setIcon(space);
-                } else if (asteroidLoc[22][1].equals("asteroid")){
+                } else if (asteroidLoc[22][1].equals("asteroid")) {
                     spot22.setIcon(space);
-                } else if (asteroidLoc[21][1].equals("asteroid")){
+                } else if (asteroidLoc[21][1].equals("asteroid")) {
                     spot21.setIcon(space);
-                } else if (asteroidLoc[20][1].equals("asteroid")){
+                } else if (asteroidLoc[20][1].equals("asteroid")) {
                     spot20.setIcon(space);
                 }
                 UpdateAsteroidLoc();
@@ -772,14 +771,19 @@ public class HomebaseDefence {
 
     public void NewAsteroid() {
         int newLoc = new Random().nextInt(5);
-        if (newLoc == 0) spot0.setIcon(asteroid);
-        if (newLoc == 1) spot1.setIcon(asteroid);
-        if (newLoc == 2) spot2.setIcon(asteroid);
-        if (newLoc == 3) spot3.setIcon(asteroid);
-        if (newLoc == 4) spot4.setIcon(asteroid);
+        if (newLoc == 0)
+            spot0.setIcon(asteroid);
+        if (newLoc == 1)
+            spot1.setIcon(asteroid);
+        if (newLoc == 2)
+            spot2.setIcon(asteroid);
+        if (newLoc == 3)
+            spot3.setIcon(asteroid);
+        if (newLoc == 4)
+            spot4.setIcon(asteroid);
         UpdateAsteroidLoc();
     }
-    
+
     public void simonDisable() {
         S1.setDisabledIcon(defaultIcon);
         S1.setEnabled(false);
@@ -830,12 +834,13 @@ public class HomebaseDefence {
         S9.setIcon(defaultIcon);
         S9.setDisabledIcon(defaultIcon);
     }
-    public void simonSays(){
+
+    public void simonSays() {
 
         // set timer to round speed
         if (patternSize == 3) {
             for (int y = 0; y < patternSize; y++) {
-                pattern.add((int) ((Math.random()*((max-min)+1))+min));
+                pattern.add((int) ((Math.random() * ((max - min) + 1)) + min));
             }
         } else if (patternSize > 3) {
             pattern.add((int) ((Math.random() * ((max - min) + 1)) + min));
@@ -844,16 +849,17 @@ public class HomebaseDefence {
         // converts array list to array
         simonPattern = pattern.toArray(new Integer[0]);
         // display each specific button based on patternSize using timer
-        double exponent = (-1) * (round-1);
-        double time = (1000*((Math.pow(2.0,exponent))));
-        delay = Math.round((int)(time));
+        double exponent = (-1) * (round - 1);
+        double time = (1000 * ((Math.pow(2.0, exponent))));
+        delay = Math.round((int) (time));
         Timer timer = new Timer(delay, null);
-        timer.addActionListener(new ActionListener(){
+        timer.addActionListener(new ActionListener() {
 
-            int x=0;
-            public void actionPerformed(ActionEvent e){
+            int x = 0;
+
+            public void actionPerformed(ActionEvent e) {
                 simonDisable();
-                if (x <= simonPattern.length-1){
+                if (x <= simonPattern.length - 1) {
                     if (simonPattern[x] == 1) {
                         S1.setDisabledIcon(chosenIcon);
                     } else if (simonPattern[x] == 2) {
@@ -873,8 +879,8 @@ public class HomebaseDefence {
                     } else if (simonPattern[x] == 9) {
                         S9.setDisabledIcon(chosenIcon);
                     }
-                }
-                else if(x == simonPattern.length){ timer.stop();
+                } else if (x == simonPattern.length) {
+                    timer.stop();
                     simonEnable();
                 }
                 x++;
@@ -884,7 +890,7 @@ public class HomebaseDefence {
         timer.start();
     }
 
-    public void checkPattern(){
+    public void checkPattern() {
         inputPattern = new Integer[0];
         inputPattern = ipattern.toArray(inputPattern);
         String check = "right";
@@ -901,22 +907,102 @@ public class HomebaseDefence {
         numDestroyed.setText("Destroyed: " + numberDestroyed);
         scoreNum.setText("Score: " + score);
         patternSize++;
-        if (patternSize == 8 && numHealth != 0){
+        if (patternSize == 8 && numHealth != 0) {
             patternSize = 3;
             round++;
             pattern.clear();
             ipattern.clear();
             simonSays();
-        } else if (numHealth==0){
+        } else if (numHealth == 0) {
             if (score > highScores) {
                 highScores = score;
+                simonDisable();
+
+                String name;
+                name = JOptionPane.showInputDialog("You have beaten the high score! Please enter your name: ");
+                names = name;
                 HighScore();
+                
+                JPanel panel1 = new JPanel();
+                JTextField txtScore = new JTextField(10);
+                JTextField txtScore2 = new JTextField(10);
+                JLabel lblScore = new JLabel("Your Score: ");
+                JLabel lblScore2 = new JLabel("High Score: ");
+                JLabel lblMessage = new JLabel("Congratulations you have made the new high score!");
+                JButton btnRestart = new JButton("Restart");
+                
+                btnRestart.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        startResetButton.doClick();
+                    }
+                });
+                JButton btnExit = new JButton("Exit");
+
+                btnExit.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        System.exit(0);
+                    }
+                });
+
+                panel1.add(lblScore);
+                panel1.add(txtScore);
+                panel1.add(lblScore2);
+                panel1.add(txtScore2);
+                panel1.add(btnRestart);
+                panel1.add(btnExit);
+                panel1.add(lblMessage);
+
+                txtScore.setText(String.valueOf(score));
+                txtScore.setEditable(false);
+                txtScore2.setText(String.valueOf(highScores));
+                txtScore2.setEditable(false);
+
+                Object[] options = {};
+                JOptionPane.showOptionDialog(null, panel1, "", JOptionPane.DEFAULT_OPTION, JOptionPane.CANCEL_OPTION, null, options, null);
             }
             simonDisable();
+            JPanel panel1 = new JPanel();
+            JTextField txtScore = new JTextField(10);
+            JTextField txtScore2 = new JTextField(10);
+            JLabel lblScore = new JLabel("Your Score: ");
+            JLabel lblScore2 = new JLabel("High Score: ");
+            JLabel lblMessage = new JLabel("Please try again to beat the high score!");
+            JButton btnRestart = new JButton("Restart");
+            
+            btnRestart.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    startResetButton.doClick();
+                }
+            });
+            JButton btnExit = new JButton("Exit");
+            
+            btnExit.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    System.exit(0);
+                }
+            });
+            
+            panel1.add(lblScore);
+            panel1.add(txtScore);
+            panel1.add(lblScore2);
+            panel1.add(txtScore2);
+            panel1.add(btnRestart); 
+            panel1.add(btnExit);
+            panel1.add(lblMessage);
+            
+            txtScore.setText(String.valueOf(score));
+            txtScore.setEditable(false);
+            txtScore2.setText(String.valueOf(highScores));
+            txtScore2.setEditable(false);
+            Object[] options = {};
+            JOptionPane.showOptionDialog(null, panel1, "", JOptionPane.DEFAULT_OPTION, JOptionPane.CANCEL_OPTION, null, options, null);
         } else{
             simonSays();
         }
-        
     }
     public static void main(String[] args) {
         JFrame frame = new JFrame("Homebase Defence");
