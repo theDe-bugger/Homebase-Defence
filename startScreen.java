@@ -22,7 +22,7 @@ public class startScreen extends javax.swing.JFrame {
         btnPlay = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
         imageBack = new javax.swing.JLabel();
-        ImageIcon back = new ImageIcon("p.png");
+        ImageIcon back = new ImageIcon("Assets/Images/background.png");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -112,14 +112,16 @@ public class startScreen extends javax.swing.JFrame {
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {                                        
         System.exit(0);
     }    
-    private void btnPlayActionPerformed(java.awt.event.ActionEvent evt) {                                        
-        HomebaseDefence play = new HomebaseDefence();
+    private void btnPlayActionPerformed(java.awt.event.ActionEvent evt) {   
+        HomebaseDefence play = new HomebaseDefence();                             
+        //HomebaseDefence.main(null);
+        //dispose();
     }                                    
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
