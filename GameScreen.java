@@ -549,8 +549,9 @@ public class GameScreen extends JFrame {
     public void Asteroids(String check) {
         // if the method is called and the input is right
         if (check.equals("right")) {
-            // add to number destroyed and recalulate score
+            // add to the number destroyed variable
             numberDestroyed++;
+            // calculate score based on round number and constantly add to score variable when an asteroid is destroyed
             score += 5 * round;
             // destroy the closest asteroid
             if (asteroidLoc[24][1].equals("asteroid")) {
@@ -942,6 +943,7 @@ public class GameScreen extends JFrame {
         inputPattern = new Integer[0];
         ipattern.clear();
         Asteroids(check);
+        // setting the label to update the score and number of asteroids destroyed when changes in the value of the variables occur
         numDestroyed.setText("Destroyed: " + numberDestroyed);
         scoreNum.setText("Score: " + score);
         patternSize++;
