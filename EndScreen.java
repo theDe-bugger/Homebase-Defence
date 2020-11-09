@@ -85,7 +85,7 @@ public class EndScreen extends JFrame {
         
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    // When the play button button is clicked it will open the game screen and close the end screen
+    // When the play again button is clicked it will open the game screen and close the end screen
     private void btnPlayAgainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayAgainActionPerformed
         // TODO add your handling code here:
         GameScreen gameScreen = new GameScreen();
