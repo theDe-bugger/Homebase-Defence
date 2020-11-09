@@ -318,7 +318,7 @@ public class GameScreen extends JFrame {
             sae.printStackTrace();
         }
     }
-
+    // Created a function that will just output the highscore and the name for the game and it will do that by looking in the XML file
     public void HighScoreBegin() {
         try {
             String name = "";
