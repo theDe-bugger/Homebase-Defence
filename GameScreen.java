@@ -130,7 +130,9 @@ public class GameScreen extends JFrame {
         S1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+            
                 if (ipattern.size() < patternSize - 1) {
+                    // adds to input pattern array list
                     ipattern.add(1);
                     simonDisable();
                     // change icon of button to different colour
