@@ -1,12 +1,27 @@
-
-public class EndScreenSummative extends javax.swing.JFrame {
-
-    public EndScreenSummative() {
+import java.awt.*;
+import javax.swing.*;
+public class EndScreen extends JFrame {
+    static String result;
+    static int userscore;
+    public EndScreen() {
         initComponents();
     }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    public static void GameWon(int score){
+        String name,names;
+        name = JOptionPane.showInputDialog("You have beaten the high score! Please enter your name: ");
+        names = name;
+        GameScreen gameScreen = new GameScreen();
+        gameScreen.HighScore(names);
+        result = "Congratulations! You beat the high score!";
+        userscore = score;
+    }
+    public static void GameLost(int score){
+        result = "Oh, no! You weren't able to beat the high score. Keep trying!";
+        userscore = score;
+        }
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
@@ -34,10 +49,12 @@ public class EndScreenSummative extends javax.swing.JFrame {
         jPanel1.add(lblYourScore);
         lblYourScore.setBounds(110, 90, 110, 50);
 
+        txtMessage.setText(String.valueOf(result));
         txtMessage.setEditable(false);
         jPanel1.add(txtMessage);
         txtMessage.setBounds(40, 170, 420, 26);
 
+        txtYourScore.setText(String.valueOf(userscore));
         txtYourScore.setEditable(false);
         jPanel1.add(txtYourScore);
         txtYourScore.setBounds(190, 100, 120, 26);
@@ -60,10 +77,10 @@ public class EndScreenSummative extends javax.swing.JFrame {
         jPanel1.add(btnPlayAgain);
         btnPlayAgain.setBounds(100, 230, 97, 29);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG_9274.jpeg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("./Assets/Images/background.png"))); // NOI18N
         jLabel1.setText("jLabel1");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(-5, -4, 500, 370);
+        jLabel1.setBounds(0,0, 500, 370);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -75,15 +92,17 @@ public class EndScreenSummative extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE)
         );
-
+        
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPlayAgainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayAgainActionPerformed
         // TODO add your handling code here:
-        startResetButton.doClick();
+        GameScreen gameScreen = new GameScreen();
+        gameScreen.main(new String[0]);
         dispose();
     }//GEN-LAST:event_btnPlayAgainActionPerformed
+    
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         // TODO add your handling code here:
@@ -93,34 +112,14 @@ public class EndScreenSummative extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(EndScreenSummative.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(EndScreenSummative.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(EndScreenSummative.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(EndScreenSummative.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
+    public static void main(String[]args) {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new EndScreenSummative().setVisible(true);
+                JFrame frame = new EndScreen();
+                frame.setResizable(false);
+                frame.setSize(500,300);
+                frame.setVisible(true);
             }
         });
     }

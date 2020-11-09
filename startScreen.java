@@ -1,8 +1,8 @@
 import java.awt.*;
 import javax.swing.*;
-public class startScreen extends javax.swing.JFrame {
+public class StartScreen extends javax.swing.JFrame {
 
-    public startScreen() {
+    public StartScreen() {
         initComponents();
     }
 
@@ -21,12 +21,15 @@ public class startScreen extends javax.swing.JFrame {
         gameOver = new javax.swing.JLabel();
         btnPlay = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
+        groupName = new javax.swing.JLabel();
         imageBack = new javax.swing.JLabel();
-        ImageIcon back = new ImageIcon("Assets/Images/background.png");
+        ImageIcon back = new ImageIcon("./Assets/Images/background.png");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(null);
+        // jPanel1.setSize(715,395);
+        // jPanel1.setResizable(false);
 
         title.setFont(new java.awt.Font("Helvetica Neue", 0, 36)); // NOI18N
         title.setForeground(new java.awt.Color(255, 255, 255));
@@ -76,6 +79,12 @@ public class startScreen extends javax.swing.JFrame {
         jPanel1.add(gameOver);
         gameOver.setBounds(20, 250, 670, 60);
 
+        groupName.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        groupName.setForeground(new java.awt.Color(255, 255, 255));
+        groupName.setText("GROUP 4 - Jaimil, Sam, Harsh, Vinay, and Jainil");
+        jPanel1.add(groupName);
+        groupName.setBounds(20, 315, 670, 60);
+
         btnPlay.setText("Play Game");
         btnPlay.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,7 +105,7 @@ public class startScreen extends javax.swing.JFrame {
 
         imageBack.setIcon(back); // NOI18N
         jPanel1.add(imageBack);
-        imageBack.setBounds(0, -10, 720, 400);
+        imageBack.setBounds(0, -12, 740, 400);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -117,44 +126,23 @@ public class startScreen extends javax.swing.JFrame {
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {                                        
         System.exit(0);
     }    
-    private void btnPlayActionPerformed(java.awt.event.ActionEvent evt) {                            
-        
-        HomebaseDefence.main();
+    private void btnPlayActionPerformed(java.awt.event.ActionEvent evt) {  
+        GameScreen gameScreen = new GameScreen();
+        gameScreen.main(new String[0]);
         dispose();
     }                                    
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(startScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(startScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(startScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(startScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
+    public static void main() {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new startScreen().setVisible(true);
+                JFrame frame = new StartScreen();
+                frame.setResizable(false);
+                frame.setSize(735,395);
+                frame.setVisible(true);
             }
         });
     }
@@ -171,6 +159,7 @@ public class startScreen extends javax.swing.JFrame {
     private javax.swing.JLabel notMatched;
     private javax.swing.JLabel points;
     private javax.swing.JLabel title;
+    private javax.swing.JLabel groupName;
     // End of variables declaration                   
 }
 
