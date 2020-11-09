@@ -946,7 +946,7 @@ public class HomebaseDefence {
                 highScores = score;
                 simonDisable();
 
-                String name;
+                /*String name;
                 name = JOptionPane.showInputDialog("You have beaten the high score! Please enter your name: ");
                 names = name;
                 HighScore();
@@ -988,10 +988,10 @@ public class HomebaseDefence {
                 txtScore2.setEditable(false);
 
                 Object[] options = {};
-                JOptionPane.showOptionDialog(null, panel1, "", JOptionPane.DEFAULT_OPTION, JOptionPane.CANCEL_OPTION, null, options, null);
+                JOptionPane.showOptionDialog(null, panel1, "", JOptionPane.DEFAULT_OPTION, JOptionPane.CANCEL_OPTION, null, options, null);*/
             }
             simonDisable();
-            JPanel panel1 = new JPanel();
+            /*JPanel panel1 = new JPanel();
             JTextField txtScore = new JTextField(10);
             JTextField txtScore2 = new JTextField(10);
             JLabel lblScore = new JLabel("Your Score: ");
@@ -1027,7 +1027,7 @@ public class HomebaseDefence {
             txtScore2.setText(String.valueOf(highScores));
             txtScore2.setEditable(false);
             Object[] options = {};
-            JOptionPane.showOptionDialog(null, panel1, "", JOptionPane.DEFAULT_OPTION, JOptionPane.CANCEL_OPTION, null, options, null);
+            JOptionPane.showOptionDialog(null, panel1, "", JOptionPane.DEFAULT_OPTION, JOptionPane.CANCEL_OPTION, null, options, null);*/
         } else{
             simonSays();
         }
