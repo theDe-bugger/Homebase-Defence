@@ -352,6 +352,7 @@ public class HomebaseDefence {
         }
     }
 
+    // method to clear asteroids by setting icons to the clear space background
     public void AsteroidClear() {
         spot0.setIcon(space);
         spot1.setIcon(space);
@@ -380,10 +381,14 @@ public class HomebaseDefence {
         spot24.setIcon(space);
     }
 
+    // method to check and update locations of asteroids into the array prior to proccessing
     public void UpdateAsteroidLoc() {
         for (int i = 0; i < 25; i++) {
+            // fill in first column of array with button name
             asteroidLoc[i][0] = "spot" + i;
+            // fill in all locations with space so they can be compared unlike null
             asteroidLoc[i][1] = "space";
+            // check and fill in asteroid into spaces with asteroids
             if (i == 0) {
                 if (spot0.getIcon().equals(asteroid)) {
                     asteroidLoc[i][1] = "asteroid";
@@ -512,10 +517,33 @@ public class HomebaseDefence {
         }
     }
 
+    // method to create a new asteroid in a random location in the top row
+    public void NewAsteroid() {
+        // collect new random location
+        int newLoc = new Random().nextInt(5);
+        // place new asteroid based on location
+        if (newLoc == 0)
+            spot0.setIcon(asteroid);
+        if (newLoc == 1)
+            spot1.setIcon(asteroid);
+        if (newLoc == 2)
+            spot2.setIcon(asteroid);
+        if (newLoc == 3)
+            spot3.setIcon(asteroid);
+        if (newLoc == 4)
+            spot4.setIcon(asteroid);
+        // call UpdateAsteroidLoc() to update location
+        UpdateAsteroidLoc();
+    }
+
+    // method that deals with all things asteroid in the game
     public void Asteroids(String check) {
+        // if the method is called and the input is right
         if (check.equals("right")) {
+            // add to number destroyed and recalulate score
             numberDestroyed++;
             score += 5 * round;
+            // destroy the closest asteroid
             if (asteroidLoc[24][1].equals("asteroid")) {
                 spot24.setIcon(space);
             } else if (asteroidLoc[23][1].equals("asteroid")) {
@@ -567,7 +595,9 @@ public class HomebaseDefence {
             } else if (asteroidLoc[0][1].equals("asteroid")) {
                 spot0.setIcon(space);
             }
+            // call UpdateAsteroidLoc() to update locations
             UpdateAsteroidLoc();
+            // shift asteroids down based on position
             if (asteroidLoc[19][1].equals("asteroid")) {
                 spot19.setIcon(space);
                 spot24.setIcon(asteroid);
@@ -648,13 +678,21 @@ public class HomebaseDefence {
                 spot0.setIcon(space);
                 spot5.setIcon(asteroid);
             }
+            // call UpdateAsteroidLoc() to update locations
             UpdateAsteroidLoc();
+            // call NewAsteroid() to randomly create a new asteroid in the top row
             NewAsteroid();
+        // if method is called and input is wrong
         } else if (check.equals("wrong")) {
-            if (asteroidLoc[24][1].equals("asteroid") || asteroidLoc[23][1].equals("asteroid")
-                    || asteroidLoc[22][1].equals("asteroid") || asteroidLoc[21][1].equals("asteroid")
+            // check if there is an asteroid in the lowest row
+            if (asteroidLoc[24][1].equals("asteroid")
+                    || asteroidLoc[23][1].equals("asteroid")
+                    || asteroidLoc[22][1].equals("asteroid")
+                    || asteroidLoc[21][1].equals("asteroid")
                     || asteroidLoc[20][1].equals("asteroid")) {
+                // if there is lower health
                 numHealth--;
+                // set healthbar based on updated health
                 if (numHealth == 6) {
                     healthBar.setIcon(sixH);
                 } else if (numHealth == 5) {
@@ -671,6 +709,7 @@ public class HomebaseDefence {
                 if (numHealth == 0) {
                     healthBar.setIcon(noH);
                 }
+                // remove asteroid that damaged the ship
                 if (asteroidLoc[24][1].equals("asteroid")) {
                     spot24.setIcon(space);
                 } else if (asteroidLoc[23][1].equals("asteroid")) {
@@ -682,8 +721,10 @@ public class HomebaseDefence {
                 } else if (asteroidLoc[20][1].equals("asteroid")) {
                     spot20.setIcon(space);
                 }
+                // call UpdateAsteroidLoc() to update locations
                 UpdateAsteroidLoc();
             }
+            // shift asteroids down based on location
             if (asteroidLoc[19][1].equals("asteroid")) {
                 spot19.setIcon(space);
                 spot24.setIcon(asteroid);
@@ -764,24 +805,11 @@ public class HomebaseDefence {
                 spot0.setIcon(space);
                 spot5.setIcon(asteroid);
             }
+            // call UpdateAsteroidLoc() to update asteroid locations
             UpdateAsteroidLoc();
+            // create a New Asteroid in a random loation in the top row
             NewAsteroid();
         }
-    }
-
-    public void NewAsteroid() {
-        int newLoc = new Random().nextInt(5);
-        if (newLoc == 0)
-            spot0.setIcon(asteroid);
-        if (newLoc == 1)
-            spot1.setIcon(asteroid);
-        if (newLoc == 2)
-            spot2.setIcon(asteroid);
-        if (newLoc == 3)
-            spot3.setIcon(asteroid);
-        if (newLoc == 4)
-            spot4.setIcon(asteroid);
-        UpdateAsteroidLoc();
     }
 
     public void simonDisable() {
