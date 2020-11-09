@@ -132,9 +132,7 @@ public class StartScreen extends javax.swing.JFrame {
         dispose();
     }                                    
 
-    /**
-     * @param args the command line arguments
-     */
+
     public static void main() {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
