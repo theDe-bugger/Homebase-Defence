@@ -51,8 +51,8 @@ public class GameScreen extends JFrame {
     private JButton S7;
     private JButton S8;
     private JButton S9;
-    private static JLabel highName;
-    private static JLabel highScore;
+    private JLabel highName;
+    private JLabel highScore;
     private JLabel numDestroyed;
     private JLabel scoreNum;
     private JButton healthBar;
@@ -71,12 +71,12 @@ public class GameScreen extends JFrame {
     ImageIcon defaultIcon = new ImageIcon(getClass().getResource("/Assets/Images/defaultIcon.jpg"));
     ImageIcon chosenIcon = new ImageIcon(getClass().getResource("/Assets/Images/chosenIcon.png"));
     int numberDestroyed;
-    static int score;
-    static int highScores;
-    String names;
+    public int score;
+    public int highScores;
+    public String names;
     int numHealth;
-    ArrayList<Integer> pattern = new ArrayList<>();
-    ArrayList<Integer> ipattern = new ArrayList<>();
+    private ArrayList<Integer> pattern = new ArrayList<>();
+    private ArrayList<Integer> ipattern = new ArrayList<>();
     Integer[] simonPattern;
     Integer[] inputPattern;
     int patternSize = 3;
@@ -84,6 +84,8 @@ public class GameScreen extends JFrame {
     int max = 9;
     int min = 1;
     int delay = 1000;
+    public String resultOutput;
+
 
     public GameScreen() {
         
@@ -276,7 +278,7 @@ public class GameScreen extends JFrame {
         });
     }
 
-    public static void HighScore(String names) {
+    public void HighScore(String names, int score) {
         try {
             String name = "";
             String filepath = "./Assets/XML/HighScore.xml";
@@ -338,6 +340,7 @@ public class GameScreen extends JFrame {
                 if (node.getNodeType() == Node.ELEMENT_NODE) {
                     Element eElement = (Element) node;
                     highScore.setText(eElement.getElementsByTagName("score").item(0).getTextContent());
+                    highScores = Integer.parseInt(eElement.getElementsByTagName("score").item(0).getTextContent());
                     highName.setText(eElement.getElementsByTagName("name").item(0).getTextContent());
                 }
             }
@@ -862,18 +865,19 @@ public class GameScreen extends JFrame {
         S9.setIcon(defaultIcon);
         S9.setDisabledIcon(defaultIcon);
     }
-
-    public void simonSays() {
-
-        // set timer to round speed
+    public void setSimonSaysPattern(){
         if (patternSize == 3) {
             for (int y = 0; y < patternSize; y++) {
-                pattern.add((int) ((Math.random() * ((max - min) + 1)) + min));
+                pattern.add((int)((Math.random() * ((max - min) + 1)) + min));
             }
         } else if (patternSize > 3) {
             pattern.add((int) ((Math.random() * ((max - min) + 1)) + min));
         }
+    }
 
+    public void simonSays() {
+    
+        setSimonSaysPattern(); 
         // converts array list to array
         simonPattern = pattern.toArray(new Integer[0]);
         // display each specific button based on patternSize using timer
@@ -944,18 +948,24 @@ public class GameScreen extends JFrame {
             // recursion
             simonSays();
         } else if (numHealth == 0) {
-            EndScreen endScreen = new EndScreen();
+            
             if (score > highScores) {
                 highScores = score;
                 simonDisable();
-                endScreen.GameWon(score);
-                endScreen.main(new String[0]);
-                this.dispose();
+                String name,names;
+                name = JOptionPane.showInputDialog("You have beaten the high score! Please enter your name: ");
+                names = name;
+                HighScore(names,score);
+                resultOutput = "Congratulations! You beat the high score!";
+                EndScreen endScreen = new EndScreen(resultOutput,highScores);
+                endScreen.main(resultOutput,highScores);
+                dispose();
             } else {
                 simonDisable();
-                endScreen.GameLost(score);
-                endScreen.main(new String[0]);
-                this.dispose();
+                resultOutput = "Oh, no! You weren't able to beat the high score. Keep trying!";
+                EndScreen endScreen = new EndScreen(resultOutput,score);
+                endScreen.main(resultOutput,score);
+                dispose();
             }
         } else{
             // recursion

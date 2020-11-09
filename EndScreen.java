@@ -1,29 +1,19 @@
 import java.awt.*;
 import javax.swing.*;
 public class EndScreen extends JFrame {
-    static String result;
-    static int userscore;
-    public EndScreen() {
+    public String result;
+    public int userScore;
+    public String names;
+    public String name;
+    public EndScreen(String resultOutput, int score) {
+        result = resultOutput;
+        userScore = score;
         initComponents();
     }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    public static void GameWon(int score){
-        String name,names;
-        name = JOptionPane.showInputDialog("You have beaten the high score! Please enter your name: ");
-        names = name;
-        GameScreen gameScreen = new GameScreen();
-        gameScreen.HighScore(names);
-        result = "Congratulations! You beat the high score!";
-        userscore = score;
-    }
-    public static void GameLost(int score){
-        result = "Oh, no! You weren't able to beat the high score. Keep trying!";
-        userscore = score;
-        }
     private void initComponents() {
-
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         lblYourScore = new javax.swing.JLabel();
@@ -54,7 +44,7 @@ public class EndScreen extends JFrame {
         jPanel1.add(txtMessage);
         txtMessage.setBounds(40, 170, 420, 26);
 
-        txtYourScore.setText(String.valueOf(userscore));
+        txtYourScore.setText(String.valueOf(userScore));
         txtYourScore.setEditable(false);
         jPanel1.add(txtYourScore);
         txtYourScore.setBounds(190, 100, 120, 26);
@@ -112,11 +102,11 @@ public class EndScreen extends JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[]args) {
+    public static void main(String outputResult, int score) {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                JFrame frame = new EndScreen();
+                JFrame frame = new EndScreen(outputResult,score);
                 frame.setResizable(false);
                 frame.setSize(500,300);
                 frame.setVisible(true);
