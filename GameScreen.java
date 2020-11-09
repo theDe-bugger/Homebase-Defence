@@ -283,20 +283,19 @@ public class GameScreen extends JFrame {
             }
         });
     }
-
+    // Created a function that will change the score (highscore) and the name in the XML file and it will also output/print the new highscore and the name
     public void HighScore(String names, int score) {
         try {
-            String name = "";
             String filepath = "./Assets/XML/HighScore.xml";
             DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
             Document doc = docBuilder.parse(filepath);
 
             Node a = doc.getElementsByTagName("name").item(0);
-            a.setTextContent(names);
+            a.setTextContent(names); // Modifies the name in the XML file
 
             Node b = doc.getElementsByTagName("score").item(0);
-            b.setTextContent(String.valueOf(score));
+            b.setTextContent(String.valueOf(score)); // Modifies the score in the XML file
 
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
@@ -310,8 +309,8 @@ public class GameScreen extends JFrame {
                 Node node = nodeList.item(i);
                 if (node.getNodeType() == Node.ELEMENT_NODE) {
                     Element eElement = (Element) node;
-                    highScore.setText(eElement.getElementsByTagName("score").item(0).getTextContent());
-                    highName.setText(eElement.getElementsByTagName("name").item(0).getTextContent());
+                    highScore.setText(eElement.getElementsByTagName("score").item(0).getTextContent()); // Prints the new high score
+                    highName.setText(eElement.getElementsByTagName("name").item(0).getTextContent()); // Prints the new name
                 }
             }
         } catch (ParserConfigurationException pce) {
@@ -327,7 +326,6 @@ public class GameScreen extends JFrame {
     // Created a function that will output the highscore and the name for the game and it will do that by looking in the XML file
     public void HighScoreBegin() {
         try {
-            String name = "";
             String filepath = "./Assets/XML/HighScore.xml";
             DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
@@ -345,9 +343,9 @@ public class GameScreen extends JFrame {
                 Node node = nodeList.item(i);
                 if (node.getNodeType() == Node.ELEMENT_NODE) {
                     Element eElement = (Element) node;
-                    highScore.setText(eElement.getElementsByTagName("score").item(0).getTextContent());
+                    highScore.setText(eElement.getElementsByTagName("score").item(0).getTextContent()); // Prints the high score
                     highScores = Integer.parseInt(eElement.getElementsByTagName("score").item(0).getTextContent());
-                    highName.setText(eElement.getElementsByTagName("name").item(0).getTextContent());
+                    highName.setText(eElement.getElementsByTagName("name").item(0).getTextContent()); // Prints the name
                 }
             }
         } catch (ParserConfigurationException pce) {
@@ -956,7 +954,7 @@ public class GameScreen extends JFrame {
             // recursion
             simonSays();
         } else if (numHealth == 0) {
-            
+            // If the score is greater than the highscore, then it will pop up the end screen and print saying u beat the highscore and it will then call the function above (HighScore) and change the name and the score in the XML file
             if (score > highScores) {
                 highScores = score;
                 simonDisable();
@@ -969,6 +967,7 @@ public class GameScreen extends JFrame {
                 endScreen.main(resultOutput,highScores);
                 dispose();
             } else {
+                // If health is 0 and the score did not beat the highscore, then the end screen will pop up and it will say to keep trying again 
                 simonDisable();
                 resultOutput = "Oh, no! You weren't able to beat the high score. Keep trying!";
                 EndScreen endScreen = new EndScreen(resultOutput,score);

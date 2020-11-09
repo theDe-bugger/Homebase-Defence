@@ -48,7 +48,7 @@ public class EndScreen extends JFrame {
         txtYourScore.setEditable(false);
         jPanel1.add(txtYourScore);
         txtYourScore.setBounds(190, 100, 120, 26);
-
+        // Created a button called exit 
         btnExit.setText("Exit");
         btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -57,7 +57,7 @@ public class EndScreen extends JFrame {
         });
         jPanel1.add(btnExit);
         btnExit.setBounds(310, 230, 75, 29);
-
+        // Created a button called play again
         btnPlayAgain.setText("Play Again");
         btnPlayAgain.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,7 +66,7 @@ public class EndScreen extends JFrame {
         });
         jPanel1.add(btnPlayAgain);
         btnPlayAgain.setBounds(100, 230, 97, 29);
-
+        // Setting the background to an image 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("./Assets/Images/background.png"))); // NOI18N
         jLabel1.setText("jLabel1");
         jPanel1.add(jLabel1);
@@ -85,7 +85,7 @@ public class EndScreen extends JFrame {
         
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    // When the play button button is clicked it will open the game screen and close the end screen
     private void btnPlayAgainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayAgainActionPerformed
         // TODO add your handling code here:
         GameScreen gameScreen = new GameScreen();
@@ -93,7 +93,7 @@ public class EndScreen extends JFrame {
         dispose();
     }//GEN-LAST:event_btnPlayAgainActionPerformed
     
-
+    // When the exit button is clicked, it will exit the entire application
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         // TODO add your handling code here:
         System.exit(0);
