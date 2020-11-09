@@ -873,10 +873,23 @@ public class GameScreen extends JFrame {
     public void setSimonSaysPattern(){
         if (patternSize == 3) {
             for (int y = 0; y < patternSize; y++) {
-                pattern.add((int)((Math.random() * ((max - min) + 1)) + min));
+                if(y == 0){
+                    pattern.add((int)((Math.random() * ((max - min) + 1)) + min));
+                }
+                else {
+                    int temp = (int) ((Math.random() * ((max - min) + 1)) + min);
+                    while (temp == pattern.get(y - 1)) {
+                        temp = (int) ((Math.random() * ((max - min) + 1)) + min);
+                    }
+                    pattern.add(temp);
+                }
             }
         } else if (patternSize > 3) {
-            pattern.add((int) ((Math.random() * ((max - min) + 1)) + min));
+            int temp = (int)((Math.random() * ((max - min) + 1)) + min);
+            while (temp == pattern.get(pattern.size()-1)){
+                temp = (int)((Math.random() * ((max - min) + 1)) + min);
+            }
+            pattern.add(temp);
         }
     }
 
