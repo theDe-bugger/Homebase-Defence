@@ -86,13 +86,13 @@ public class GameScreen extends JFrame {
     int delay = 1000;
     public String resultOutput;
 
-
     public GameScreen() {
         
         simonDisable();
         startResetButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                // refreshes contents to new game
                 startResetButton.setText("Reset");
                 numberDestroyed = 0;
                 numHealth = 7;
@@ -100,13 +100,16 @@ public class GameScreen extends JFrame {
                 AsteroidClear();
                 NewAsteroid();
                 UpdateAsteroidLoc();
-                // to start with multiple
-                Asteroids("wrong");
                 score = 0;
                 numDestroyed.setText("Destroyed: 0");
                 scoreNum.setText("Score: 0");
+
+                // to start with multiple asteroids
+                Asteroids("wrong");
+                
                 // set high score values
                 HighScoreBegin();
+                
                 // initializes SimonSays component
                 ipattern.clear();
                 pattern.clear();
@@ -122,6 +125,7 @@ public class GameScreen extends JFrame {
                 System.exit(0);
             }
         });
+
         // Simon Says input buttons
         S1.addActionListener(new ActionListener() {
             @Override
