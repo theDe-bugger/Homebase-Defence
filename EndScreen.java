@@ -5,6 +5,12 @@ public class EndScreen extends JFrame {
     public int userScore;
     public String names;
     public String name;
+
+    /**
+     * First set the values for the highscore name and score, then initialize the Components with these values
+     * @param resultOutput
+     * @param score
+     */
     public EndScreen(String resultOutput, int score) {
         result = resultOutput;
         userScore = score;
@@ -85,15 +91,20 @@ public class EndScreen extends JFrame {
         
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    // When the play again button is clicked it will open the game screen and close the end screen
+
+    /**
+     * When the play again button is clicked it will open the game screen and close the end screen
+     */
     private void btnPlayAgainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayAgainActionPerformed
         // TODO add your handling code here:
         GameScreen gameScreen = new GameScreen();
         gameScreen.main(new String[0]);
         dispose();
-    }//GEN-LAST:event_btnPlayAgainActionPerformed
-    
-    // When the exit button is clicked, it will exit the entire application
+    }
+
+    /**
+     * When the exit button is clicked, it will exit the entire application
+     */
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         // TODO add your handling code here:
         System.exit(0);
@@ -101,7 +112,9 @@ public class EndScreen extends JFrame {
 
 
     public static void main(String outputResult, int score) {
-        /* Create and display the form */
+        /*
+        * Create and display the form
+        */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 JFrame frame = new EndScreen(outputResult,score);

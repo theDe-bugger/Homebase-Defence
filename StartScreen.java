@@ -127,12 +127,16 @@ public class StartScreen extends javax.swing.JFrame {
         pack();
     }// </editor-fold>                        
 
-    // setting the action of the exit button to close application when pressed
+    /**
+     * setting the action of the exit button to close application when pressed
+     */
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {                                        
         System.exit(0);
     }    
 
-    // setting the action of the play game button to open game screen and close the start screen when pressed 
+    /**
+    * setting the action of the play game button to open game screen and close the start screen when pressed
+     */
     private void btnPlayActionPerformed(java.awt.event.ActionEvent evt) {  
         //learned to set up the call from here
         //https://stackoverflow.com/questions/2550310/can-a-main-method-of-class-be-invoked-from-another-class-in-java
@@ -147,7 +151,9 @@ public class StartScreen extends javax.swing.JFrame {
 
 
     public static void main() {
-        /* Create and display the form */
+        /**
+        * Create and display the form
+        */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 JFrame frame = new StartScreen();
