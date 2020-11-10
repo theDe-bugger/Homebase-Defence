@@ -99,6 +99,9 @@ public class GameScreen extends JFrame {
         simonDisable();
         startResetButton.addActionListener(new ActionListener() {
             @Override
+            /*
+            * actions to start a new game
+             */
             public void actionPerformed(ActionEvent e) {
                 // refreshes contents to new game
                 startResetButton.setText("Reset");
@@ -129,6 +132,9 @@ public class GameScreen extends JFrame {
         });
         exitButton.addActionListener(new ActionListener() {
             @Override
+            /*
+            * functioning exit button
+             */
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);
             }
@@ -425,7 +431,9 @@ public class GameScreen extends JFrame {
             }
         });
     }
-    // Created a function that will change the score (highscore) and the name in the XML file and it will also output/print the new highscore and the name
+    /*
+     * method that will change the score (highscore) and the name in the XML file and it will also output/print the new highscore and the name
+     */
     public void HighScore(String names, int score) {
         try {
             String filepath = "./Assets/XML/HighScore.xml";
@@ -465,7 +473,9 @@ public class GameScreen extends JFrame {
             sae.printStackTrace();
         }
     }
-    // Created a function that will output the highscore and the name for the game and it will do that by looking in the XML file
+    /*
+     * method that will output the highscore and the name for the game and it will do that by looking in the XML file
+     */
     public void HighScoreBegin() {
         try {
             String filepath = "./Assets/XML/HighScore.xml";
@@ -501,7 +511,9 @@ public class GameScreen extends JFrame {
         }
     }
 
-    // method to clear asteroids by setting icons to the clear space background
+    /*
+     * method to clear asteroids by setting icons to the clear space background
+     */
     public void AsteroidClear() {
         spot0.setIcon(space);
         spot1.setIcon(space);
@@ -530,7 +542,9 @@ public class GameScreen extends JFrame {
         spot24.setIcon(space);
     }
 
-    // method to check and update locations of asteroids into the array prior to proccessing
+    /*
+     * method to check and update locations of asteroids into the array prior to processing
+     */
     public void UpdateAsteroidLoc() {
         for (int i = 0; i < 25; i++) {
             // fill in first column of array with button name
@@ -666,7 +680,9 @@ public class GameScreen extends JFrame {
         }
     }
 
-    // method to create a new asteroid in a random location in the top row
+    /*
+     * method to create a new asteroid in a random location in the top row
+     */
     public void NewAsteroid() {
         // collect new random location
         int newLoc = new Random().nextInt(5);
@@ -685,7 +701,9 @@ public class GameScreen extends JFrame {
         UpdateAsteroidLoc();
     }
 
-    // method that deals with all things asteroid in the game
+    /*
+     * method that deals with all things asteroid in the game
+     */
     public void Asteroids(String check) {
         // if the method is called and the input is right
         if (check.equals("right")) {
