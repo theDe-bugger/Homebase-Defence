@@ -2,6 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.Random;
 import java.util.ArrayList;
 import java.io.*;
@@ -12,7 +14,8 @@ import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.*;
 import org.xml.sax.*;
 
-public class GameScreen extends JFrame{
+
+public class GameScreen extends JFrame {
     private JPanel mainPanel;
     private JButton spot0;
     private JButton spot1;
@@ -82,6 +85,7 @@ public class GameScreen extends JFrame{
     int max = 9;
     int min = 1;
     int delay = 1000;
+    boolean simonEnabled;
     public String resultOutput;
 
     public GameScreen() {
@@ -131,158 +135,311 @@ public class GameScreen extends JFrame{
         });
 
         // Simon Says input buttons
-        S1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+        // S1.addActionListener(new ActionListener() {
+        //     @Override
+        //     public void actionPerformed(ActionEvent e) {
             
-                if (ipattern.size() < patternSize - 1) {
-                    // adds to input pattern array list
-                    ipattern.add(1);
+        //         if (ipattern.size() < patternSize - 1) {
+        //             // adds to input pattern array list
+        //             ipattern.add(1);
+        //             simonDisable();
+        //             // change icon of button to different colour
+        //             S1.setDisabledIcon(chosenIcon);
+        //             simonDisable();
+        //             simonEnable();
+        //         } else if (ipattern.size() == patternSize - 1) {
+        //             ipattern.add(1);
+        //             simonDisable();
+        //             checkPattern();
+        //         }
+        //     }
+        // });
+        S1.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                if (simonEnabled == true){
+                    super.mousePressed(e);
                     simonDisable();
-                    // change icon of button to different colour
+                    simonEnabled = true;
                     S1.setDisabledIcon(chosenIcon);
-                    simonDisable();
+                } else {
+                    return;
+                }
+
+            }
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                
+                if (simonEnabled == true){
+                    super.mouseReleased(e);
                     simonEnable();
-                } else if (ipattern.size() == patternSize - 1) {
-                    ipattern.add(1);
-                    simonDisable();
-                    checkPattern();
+                    if (ipattern.size() < patternSize - 1) {
+                        // adds to input pattern array list
+                        ipattern.add(1);
+                    } else if (ipattern.size() == patternSize - 1) {
+                        ipattern.add(1);
+                        simonDisable();
+                        checkPattern();
+                    }
+                } else{
+                    return;
                 }
             }
         });
-        S2.addActionListener(new ActionListener() {
+
+        S2.addMouseListener(new MouseAdapter() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                if (ipattern.size() < patternSize - 1) {
-                    ipattern.add(2);
+            public void mousePressed(MouseEvent e) {
+                if (simonEnabled == true){
+                    super.mousePressed(e);
                     simonDisable();
-                    // change icon of button to different colour
+                    simonEnabled = true;
                     S2.setDisabledIcon(chosenIcon);
-                    simonDisable();
+                } else {
+                    return;
+                }
+
+            }
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                
+                if (simonEnabled == true){
+                    super.mouseReleased(e);
                     simonEnable();
-                } else if (ipattern.size() == patternSize - 1) {
-                    ipattern.add(2);
-                    simonDisable();
-                    checkPattern();
+                    if (ipattern.size() < patternSize - 1) {
+                        // adds to input pattern array list
+                        ipattern.add(2);
+                    } else if (ipattern.size() == patternSize - 1) {
+                        ipattern.add(2);
+                        simonDisable();
+                        checkPattern();
+                    }
+                } else{
+                    return;
                 }
             }
         });
-        S3.addActionListener(new ActionListener() {
+        S3.addMouseListener(new MouseAdapter() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                if (ipattern.size() < patternSize - 1) {
-                    ipattern.add(3);
+            public void mousePressed(MouseEvent e) {
+                if (simonEnabled == true){
+                    super.mousePressed(e);
                     simonDisable();
-                    // change icon of button to different colour
+                    simonEnabled = true;
                     S3.setDisabledIcon(chosenIcon);
-                    simonDisable();
+                } else {
+                    return;
+                }
+
+            }
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                
+                if (simonEnabled == true){
+                    super.mouseReleased(e);
                     simonEnable();
-                } else if (ipattern.size() == patternSize - 1) {
-                    ipattern.add(3);
-                    simonDisable();
-                    checkPattern();
+                    if (ipattern.size() < patternSize - 1) {
+                        // adds to input pattern array list
+                        ipattern.add(3);
+                    } else if (ipattern.size() == patternSize - 1) {
+                        ipattern.add(3);
+                        simonDisable();
+                        checkPattern();
+                    }
+                } else{
+                    return;
                 }
             }
         });
-        S4.addActionListener(new ActionListener() {
+        S4.addMouseListener(new MouseAdapter() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                if (ipattern.size() < patternSize - 1) {
-                    ipattern.add(4);
+            public void mousePressed(MouseEvent e) {
+                if (simonEnabled == true){
+                    super.mousePressed(e);
                     simonDisable();
-                    // change icon of button to different colour
+                    simonEnabled = true;
                     S4.setDisabledIcon(chosenIcon);
-                    simonDisable();
+                } else {
+                    return;
+                }
+
+            }
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                
+                if (simonEnabled == true){
+                    super.mouseReleased(e);
                     simonEnable();
-                } else if (ipattern.size() == patternSize - 1) {
-                    ipattern.add(4);
-                    simonDisable();
-                    checkPattern();
+                    if (ipattern.size() < patternSize - 1) {
+                        // adds to input pattern array list
+                        ipattern.add(4);
+                    } else if (ipattern.size() == patternSize - 1) {
+                        ipattern.add(4);
+                        simonDisable();
+                        checkPattern();
+                    }
+                } else{
+                    return;
                 }
             }
         });
-        S5.addActionListener(new ActionListener() {
+        S5.addMouseListener(new MouseAdapter() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                if (ipattern.size() < patternSize - 1) {
-                    ipattern.add(5);
+            public void mousePressed(MouseEvent e) {
+                if (simonEnabled == true){
+                    super.mousePressed(e);
                     simonDisable();
-                    // change icon of button to different colour
+                    simonEnabled = true;
                     S5.setDisabledIcon(chosenIcon);
-                    simonDisable();
+                } else {
+                    return;
+                }
+
+            }
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                
+                if (simonEnabled == true){
+                    super.mouseReleased(e);
                     simonEnable();
-                } else if (ipattern.size() == patternSize - 1) {
-                    ipattern.add(5);
-                    simonDisable();
-                    checkPattern();
+                    if (ipattern.size() < patternSize - 1) {
+                        // adds to input pattern array list
+                        ipattern.add(5);
+                    } else if (ipattern.size() == patternSize - 1) {
+                        ipattern.add(5);
+                        simonDisable();
+                        checkPattern();
+                    }
+                } else{
+                    return;
                 }
             }
         });
-        S6.addActionListener(new ActionListener() {
+        S6.addMouseListener(new MouseAdapter() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                if (ipattern.size() < patternSize - 1) {
-                    ipattern.add(6);
+            public void mousePressed(MouseEvent e) {
+                if (simonEnabled == true){
+                    super.mousePressed(e);
                     simonDisable();
-                    // change icon of button to different colour
+                    simonEnabled = true;
                     S6.setDisabledIcon(chosenIcon);
-                    simonDisable();
+                } else {
+                    return;
+                }
+
+            }
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                
+                if (simonEnabled == true){
+                    super.mouseReleased(e);
                     simonEnable();
-                } else if (ipattern.size() == patternSize - 1) {
-                    ipattern.add(6);
-                    simonDisable();
-                    checkPattern();
+                    if (ipattern.size() < patternSize - 1) {
+                        // adds to input pattern array list
+                        ipattern.add(6);
+                    } else if (ipattern.size() == patternSize - 1) {
+                        ipattern.add(6);
+                        simonDisable();
+                        checkPattern();
+                    }
+                } else{
+                    return;
                 }
             }
         });
-        S7.addActionListener(new ActionListener() {
+        S7.addMouseListener(new MouseAdapter() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                if (ipattern.size() < patternSize - 1) {
-                    ipattern.add(7);
+            public void mousePressed(MouseEvent e) {
+                if (simonEnabled == true){
+                    super.mousePressed(e);
                     simonDisable();
-                    // change icon of button to different colour
+                    simonEnabled = true;
                     S7.setDisabledIcon(chosenIcon);
-                    simonDisable();
+                } else {
+                    return;
+                }
+
+            }
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                
+                if (simonEnabled == true){
+                    super.mouseReleased(e);
                     simonEnable();
-                } else if (ipattern.size() == patternSize - 1) {
-                    ipattern.add(7);
-                    simonDisable();
-                    checkPattern();
+                    if (ipattern.size() < patternSize - 1) {
+                        // adds to input pattern array list
+                        ipattern.add(7);
+                    } else if (ipattern.size() == patternSize - 1) {
+                        ipattern.add(7);
+                        simonDisable();
+                        checkPattern();
+                    }
+                } else{
+                    return;
                 }
             }
         });
-        S8.addActionListener(new ActionListener() {
+        S8.addMouseListener(new MouseAdapter() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                if (ipattern.size() < patternSize - 1) {
-                    ipattern.add(8);
+            public void mousePressed(MouseEvent e) {
+                if (simonEnabled == true){
+                    super.mousePressed(e);
                     simonDisable();
-                    // change icon of button to different colour
+                    simonEnabled = true;
                     S8.setDisabledIcon(chosenIcon);
-                    simonDisable();
+                } else {
+                    return;
+                }
+
+            }
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                
+                if (simonEnabled == true){
+                    super.mouseReleased(e);
                     simonEnable();
-                } else if (ipattern.size() == patternSize - 1) {
-                    ipattern.add(8);
-                    simonDisable();
-                    checkPattern();
+                    if (ipattern.size() < patternSize - 1) {
+                        // adds to input pattern array list
+                        ipattern.add(8);
+                    } else if (ipattern.size() == patternSize - 1) {
+                        ipattern.add(8);
+                        simonDisable();
+                        checkPattern();
+                    }
+                } else{
+                    return;
                 }
             }
         });
-        S9.addActionListener(new ActionListener() {
+        S9.addMouseListener(new MouseAdapter() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                if (ipattern.size() < patternSize - 1) {
-                    ipattern.add(9);
+            public void mousePressed(MouseEvent e) {
+                if (simonEnabled == true){
+                    super.mousePressed(e);
                     simonDisable();
-                    // change icon of button to different colour
+                    simonEnabled = true;
                     S9.setDisabledIcon(chosenIcon);
-                    simonDisable();
+                } else {
+                    return;
+                }
+
+            }
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                
+                if (simonEnabled == true){
+                    super.mouseReleased(e);
                     simonEnable();
-                } else if (ipattern.size() == patternSize - 1) {
-                    ipattern.add(9);
-                    simonDisable();
-                    checkPattern();
+                    if (ipattern.size() < patternSize - 1) {
+                        // adds to input pattern array list
+                        ipattern.add(9);
+                    } else if (ipattern.size() == patternSize - 1) {
+                        ipattern.add(9);
+                        simonDisable();
+                        checkPattern();
+                    }
+                } else{
+                    return;
                 }
             }
         });
@@ -825,6 +982,7 @@ public class GameScreen extends JFrame{
     }
 
     public void simonDisable() {
+        simonEnabled = false;
         S1.setDisabledIcon(defaultIcon);
         S1.setEnabled(false);
         S2.setDisabledIcon(defaultIcon);
@@ -846,6 +1004,7 @@ public class GameScreen extends JFrame{
     }
 
     public void simonEnable() {
+        simonEnabled = true;
         S1.setEnabled(true);
         S1.setIcon(defaultIcon);
         S1.setDisabledIcon(defaultIcon);
