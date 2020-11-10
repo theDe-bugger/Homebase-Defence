@@ -134,6 +134,8 @@ public class StartScreen extends javax.swing.JFrame {
 
     // setting the action of the play game button to open game screen and close the start screen when pressed 
     private void btnPlayActionPerformed(java.awt.event.ActionEvent evt) {  
+        //learned to set up the call from here
+        //https://stackoverflow.com/questions/2550310/can-a-main-method-of-class-be-invoked-from-another-class-in-java
         GameScreen gameScreen = new GameScreen();
         //learned to call main method with string[] args parameter from another class from this website
         //https://stackoverflow.com/questions/4122455/is-it-possible-to-call-the-main-method-passing-args-from-another-method
