@@ -1,3 +1,12 @@
+/**
+ * This class runs the start screen of the complete product. It displays a welcome page, shows instructions, and asks if the player would like to play the game or not.
+ * 
+ * date         20201110
+ * @filename	StartScreen.java
+ * @author      jdalwadi, sassareymuryil, jmajmudar, hshah, vreddy
+ * @version     1.0
+ * @see         assignment 4
+ */
 import java.awt.*;
 import javax.swing.*;
 public class StartScreen extends javax.swing.JFrame {
@@ -26,11 +35,10 @@ public class StartScreen extends javax.swing.JFrame {
         ImageIcon back = new ImageIcon("./Assets/Images/background.png");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        
         //learned how to stack labels on netbeans gui from here
         //https://www.youtube.com/watch?v=hIZyJzP96Pg
         jPanel1.setLayout(null);
-        // jPanel1.setSize(715,395);
-        // jPanel1.setResizable(false);
 
         title.setFont(new java.awt.Font("Helvetica Neue", 0, 36)); // NOI18N
         title.setForeground(new java.awt.Color(255, 255, 255));
@@ -134,8 +142,8 @@ public class StartScreen extends javax.swing.JFrame {
         System.exit(0);
     }    
 
-    /**
-    * setting the action of the play game button to open game screen and close the start screen when pressed
+    /** 
+     * setting the action of the play game button to open game screen and close the start screen when pressed
      */
     private void btnPlayActionPerformed(java.awt.event.ActionEvent evt) {  
         //learned to set up the call from here
@@ -150,7 +158,7 @@ public class StartScreen extends javax.swing.JFrame {
     }                                    
 
 
-    public static void main() {
+    public static void main(String[]args) {
         /**
         * Create and display the form
         */

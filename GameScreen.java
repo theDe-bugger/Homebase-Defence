@@ -1,3 +1,12 @@
+/**
+ * This class runs the game screen of the complete product. It allows for user interaction, game functionality, and actual gameplay.
+ * 
+ * date         20201110
+ * @filename	GameScreen.java
+ * @author      jdalwadi, sassareymuryil, jmajmudar, hshah, vreddy
+ * @version     1.0
+ * @see         assignment 4
+ */
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -97,10 +106,11 @@ public class GameScreen extends JFrame {
                 }
         this.setContentPane(mainPanel);
         SimonDisable();
+
         startResetButton.addActionListener(new ActionListener() {
             @Override
-            /*
-            * actions to start a new game
+            /**
+             * actions to start a new game
              */
             public void actionPerformed(ActionEvent e) {
                 // refreshes contents to new game
@@ -140,7 +150,9 @@ public class GameScreen extends JFrame {
             }
         });
 
-        // Simon Says input buttons
+        /**
+         * SimonSays buttons - MouseListeners for input
+         */
         S1.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
@@ -879,7 +891,9 @@ public class GameScreen extends JFrame {
             NewAsteroid();
         }
     }
-
+    /** 
+     * method to disable all SimonSays input buttons so they can't be pressed
+     */
     public void SimonDisable() {
         simonEnabled = false;
         S1.setDisabledIcon(defaultIcon);
@@ -901,7 +915,9 @@ public class GameScreen extends JFrame {
         S9.setDisabledIcon(defaultIcon);
         S9.setEnabled(false);
     }
-
+    /** 
+     * method to enable all SimonSays input buttons so they can be pressed
+     */
     public void SimonEnable() {
         simonEnabled = true;
         S1.setEnabled(true);
@@ -932,6 +948,10 @@ public class GameScreen extends JFrame {
         S9.setIcon(defaultIcon);
         S9.setDisabledIcon(defaultIcon);
     }
+
+    /** 
+     * method to create a random SimonSays pattern in an ArrayList
+     */
     public void SetSimonSaysPattern(){
         if (patternSize == 3) {
             for (int y = 0; y < patternSize; y++) {
@@ -962,11 +982,14 @@ public class GameScreen extends JFrame {
         }
     }
 
+    /** 
+     * method to run SimonSays component of the game 
+     */
     public void SimonSays() {
     
         SetSimonSaysPattern();
-        // converts array list to array
         simonPattern = pattern.toArray(new Integer[0]);
+
         // display each specific button based on patternSize using timer
         double exponent = (-1) * (round - 1);
         double time = (1000 * ((Math.pow(2.0, exponent))));
@@ -1009,10 +1032,15 @@ public class GameScreen extends JFrame {
         timer.start();
     }
 
+    /** 
+     * method to compare input pattern with generated random SimonSays pattern
+     */
     public void CheckPattern() {
         inputPattern = new Integer[0];
         inputPattern = ipattern.toArray(inputPattern);
         String check = "right";
+
+        // simple linear search comparison to see if input does not match SimonSays pattern
         for (int i = 0; i < inputPattern.length; i++) {
             if (inputPattern[i] != simonPattern[i]) {
                 check = "wrong";
@@ -1023,6 +1051,7 @@ public class GameScreen extends JFrame {
         inputPattern = new Integer[0];
         ipattern.clear();
         Asteroid(check);
+
         // setting the label to update the score and number of asteroids destroyed when changes in the value of the variables occur
         numDestroyed.setText("Destroyed: " + numberDestroyed);
         scoreNum.setText("Score: " + score);
@@ -1033,10 +1062,10 @@ public class GameScreen extends JFrame {
             pattern.clear();
             ipattern.clear();
             
-            // recursion
+            // recursion back to original SimonSays function
             SimonSays();
         } else if (numHealth == 0) {
-            // If the score is greater than the highscore, then it will pop up the end screen and print saying u beat the highscore and it will then call the function above (HighScore) and change the name and the score in the XML file
+            // if the score is greater than the highscore, then it will pop up the end screen and print saying u beat the highscore and it will then call the function above (HighScore) and change the name and the score in the XML file
             if (score > highScores) {
                 highScores = score;
                 SimonDisable();
@@ -1047,20 +1076,41 @@ public class GameScreen extends JFrame {
                 HighScore(names,score);
                 resultOutput = "Congratulations! You beat the high score!";
                 EndScreen endScreen = new EndScreen(resultOutput,highScores);
+                // learned an alternate to System.exit(0); to close website from here
+                // https://stackoverflow.com/questions/28908262/how-do-you-close-a-java-gui-without-ending-the-jvm/28908292
                 dispose();
                 endScreen.main(resultOutput,highScores);
                 
-            } else {
-                // If health is 0 and the score did not beat the highscore, then the end screen will pop up and it will say to keep trying again 
+            } else if (score == highScores){
+                // if health is 0 and the score ties with the highscore, then the end screen will pop up and it will say to keep trying again 
+                highScores=score;
+                SimonDisable(); 
+                String name;
+                String names;
+                name = JOptionPane.showInputDialog("You have tied the high score! Please enter your name: ");
+                names = name;
+                HighScore(names,score);
+                resultOutput = "Congratulations! You tied with the high score!";
+                EndScreen endScreen = new EndScreen(resultOutput,highScores);
+                // learned an alternate to System.exit(0); to close website from here
+                // https://stackoverflow.com/questions/28908262/how-do-you-close-a-java-gui-without-ending-the-jvm/28908292
+                dispose();
+                endScreen.main(resultOutput,highScores);
+            } 
+
+            else {
+                // if health is 0 and the score did not beat the highscore, then the end screen will pop up and it will say to keep trying again 
                 SimonDisable();
                 resultOutput = "Oh, no! You weren't able to beat the high score. Keep trying!";
                 EndScreen endScreen = new EndScreen(resultOutput,score);
+                // learned an alternate to System.exit(0); to close website from here
+                // https://stackoverflow.com/questions/28908262/how-do-you-close-a-java-gui-without-ending-the-jvm/28908292
                 dispose();
                 endScreen.main(resultOutput,score);
                 
             }
         } else{
-            // recursion
+            // recursion back to original SimonSays function
             SimonSays();
         }
     }

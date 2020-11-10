@@ -1,3 +1,12 @@
+/**
+ * This class runs the end screen of the complete product. It displays high score and results.
+ * 
+ * date         20201110
+ * @filename	EndScreen.java
+ * @author      jdalwadi, sassareymuryil, jmajmudar, hshah, vreddy
+ * @version     1.0
+ * @see         assignment 4
+ */
 import java.awt.*;
 import javax.swing.*;
 public class EndScreen extends JFrame {
@@ -96,17 +105,15 @@ public class EndScreen extends JFrame {
      * When the play again button is clicked it will open the game screen and close the end screen
      */
     private void btnPlayAgainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayAgainActionPerformed
-        // TODO add your handling code here:
         GameScreen gameScreen = new GameScreen();
         gameScreen.main(new String[0]);
         dispose();
     }
 
     /**
-     * When the exit button is clicked, it will exit the entire application
+     * When the exit button is clicked, it will close the entire application
      */
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-        // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_btnExitActionPerformed
 
