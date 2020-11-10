@@ -99,7 +99,7 @@ public class GameScreen extends JFrame {
         SimonDisable();
         startResetButton.addActionListener(new ActionListener() {
             @Override
-            /*
+            /**
             * actions to start a new game
              */
             public void actionPerformed(ActionEvent e) {
@@ -132,7 +132,7 @@ public class GameScreen extends JFrame {
         });
         exitButton.addActionListener(new ActionListener() {
             @Override
-            /*
+            /**
             * functioning exit button
              */
             public void actionPerformed(ActionEvent e) {
@@ -431,7 +431,7 @@ public class GameScreen extends JFrame {
             }
         });
     }
-    /*
+    /**
      * method that will change the score (highscore) and the name in the XML file and it will also output/print the new highscore and the name
      */
     public void HighScore(String names, int score) {
@@ -473,7 +473,7 @@ public class GameScreen extends JFrame {
             sae.printStackTrace();
         }
     }
-    /*
+    /**
      * method that will output the highscore and the name for the game and it will do that by looking in the XML file
      */
     public void HighScoreBegin() {
@@ -511,7 +511,7 @@ public class GameScreen extends JFrame {
         }
     }
 
-    /*
+    /**
      * method to clear asteroids by setting icons to the clear space background
      */
     public void AsteroidClear() {
@@ -542,7 +542,7 @@ public class GameScreen extends JFrame {
         spot24.setIcon(space);
     }
 
-    /*
+    /**
      * method to check and update locations of asteroids into the array prior to processing
      */
     public void UpdateAsteroidLoc() {
@@ -580,7 +580,7 @@ public class GameScreen extends JFrame {
         }
     }
 
-    /*
+    /**
      * method to create a new asteroid in a random location in the top row
      */
     public void NewAsteroid() {
@@ -601,7 +601,7 @@ public class GameScreen extends JFrame {
         UpdateAsteroidLoc();
     }
 
-    /*
+    /**
      * method that deals with all things asteroid in the game
      */
     public void Asteroid(String check) {
