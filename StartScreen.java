@@ -26,7 +26,8 @@ public class StartScreen extends javax.swing.JFrame {
         ImageIcon back = new ImageIcon("./Assets/Images/background.png");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
+        //learned how to stack labels on netbeans gui from here
+        //https://www.youtube.com/watch?v=hIZyJzP96Pg
         jPanel1.setLayout(null);
         // jPanel1.setSize(715,395);
         // jPanel1.setResizable(false);
@@ -134,7 +135,11 @@ public class StartScreen extends javax.swing.JFrame {
     // setting the action of the play game button to open game screen and close the start screen when pressed 
     private void btnPlayActionPerformed(java.awt.event.ActionEvent evt) {  
         GameScreen gameScreen = new GameScreen();
+        //learned to call main method with string[] args parameter from another class from this website
+        //https://stackoverflow.com/questions/4122455/is-it-possible-to-call-the-main-method-passing-args-from-another-method
         gameScreen.main(new String[0]);
+        //learned an alternate to System.exit(0); to close website from here
+        //https://stackoverflow.com/questions/28908262/how-do-you-close-a-java-gui-without-ending-the-jvm/28908292
         dispose();
     }                                    
 
