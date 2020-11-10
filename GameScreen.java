@@ -99,9 +99,6 @@ public class GameScreen extends JFrame {
         simonDisable();
         startResetButton.addActionListener(new ActionListener() {
             @Override
-            /*
-            * actions to start a new game
-             */
             public void actionPerformed(ActionEvent e) {
                 // refreshes contents to new game
                 startResetButton.setText("Reset");
@@ -132,9 +129,6 @@ public class GameScreen extends JFrame {
         });
         exitButton.addActionListener(new ActionListener() {
             @Override
-            /*
-            * functioning exit button
-             */
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);
             }
@@ -431,9 +425,7 @@ public class GameScreen extends JFrame {
             }
         });
     }
-    /*
-     * method that will change the score (highscore) and the name in the XML file and it will also output/print the new highscore and the name
-     */
+    // Created a function that will change the score (highscore) and the name in the XML file and it will also output/print the new highscore and the name
     public void HighScore(String names, int score) {
         try {
             String filepath = "./Assets/XML/HighScore.xml";
@@ -473,9 +465,7 @@ public class GameScreen extends JFrame {
             sae.printStackTrace();
         }
     }
-    /*
-     * method that will output the highscore and the name for the game and it will do that by looking in the XML file
-     */
+    // Created a function that will output the highscore and the name for the game and it will do that by looking in the XML file
     public void HighScoreBegin() {
         try {
             String filepath = "./Assets/XML/HighScore.xml";
@@ -511,9 +501,7 @@ public class GameScreen extends JFrame {
         }
     }
 
-    /*
-     * method to clear asteroids by setting icons to the clear space background
-     */
+    // method to clear asteroids by setting icons to the clear space background
     public void AsteroidClear() {
         spot0.setIcon(space);
         spot1.setIcon(space);
@@ -542,9 +530,7 @@ public class GameScreen extends JFrame {
         spot24.setIcon(space);
     }
 
-    /*
-     * method to check and update locations of asteroids into the array prior to processing
-     */
+    // method to check and update locations of asteroids into the array prior to proccessing
     public void UpdateAsteroidLoc() {
         for (int i = 0; i < 25; i++) {
             // fill in first column of array with button name
@@ -552,37 +538,135 @@ public class GameScreen extends JFrame {
             // fill in all locations with space so they can be compared unlike null
             asteroidLoc[i][1] = "space";
             // check and fill in asteroid into spaces with asteroids
-            if (i == 0 && spot0.getIcon().equals(asteroid)) {asteroidLoc[i][1] = "asteroid";}
-            if (i == 1 && spot1.getIcon().equals(asteroid)) {asteroidLoc[i][1] = "asteroid";}
-            if (i == 2 && spot2.getIcon().equals(asteroid)) {asteroidLoc[i][1] = "asteroid";}
-            if (i == 3 && spot3.getIcon().equals(asteroid)) {asteroidLoc[i][1] = "asteroid";}
-            if (i == 4 && spot4.getIcon().equals(asteroid)) {asteroidLoc[i][1] = "asteroid";}
-            if (i == 5 && spot5.getIcon().equals(asteroid)) {asteroidLoc[i][1] = "asteroid";}
-            if (i == 6 && spot6.getIcon().equals(asteroid)) {asteroidLoc[i][1] = "asteroid";}
-            if (i == 7 && spot7.getIcon().equals(asteroid)) {asteroidLoc[i][1] = "asteroid";}
-            if (i == 8 && spot8.getIcon().equals(asteroid)) {asteroidLoc[i][1] = "asteroid";}
-            if (i == 9 && spot9.getIcon().equals(asteroid)) {asteroidLoc[i][1] = "asteroid";}
-            if (i == 10 && spot10.getIcon().equals(asteroid)) {asteroidLoc[i][1] = "asteroid";}
-            if (i == 11 && spot11.getIcon().equals(asteroid)) {asteroidLoc[i][1] = "asteroid";}
-            if (i == 12 && spot12.getIcon().equals(asteroid)) {asteroidLoc[i][1] = "asteroid";}
-            if (i == 13 && spot13.getIcon().equals(asteroid)) {asteroidLoc[i][1] = "asteroid";}
-            if (i == 14 && spot14.getIcon().equals(asteroid)) {asteroidLoc[i][1] = "asteroid";}
-            if (i == 15 && spot15.getIcon().equals(asteroid)) {asteroidLoc[i][1] = "asteroid";}
-            if (i == 16 && spot16.getIcon().equals(asteroid)) {asteroidLoc[i][1] = "asteroid";}
-            if (i == 17 && spot17.getIcon().equals(asteroid)) {asteroidLoc[i][1] = "asteroid";}
-            if (i == 18 && spot18.getIcon().equals(asteroid)) {asteroidLoc[i][1] = "asteroid";}
-            if (i == 19 && spot19.getIcon().equals(asteroid)) {asteroidLoc[i][1] = "asteroid";}
-            if (i == 20 && spot20.getIcon().equals(asteroid)) {asteroidLoc[i][1] = "asteroid";}
-            if (i == 21 && spot21.getIcon().equals(asteroid)) {asteroidLoc[i][1] = "asteroid";}
-            if (i == 22 && spot22.getIcon().equals(asteroid)) {asteroidLoc[i][1] = "asteroid";}
-            if (i == 23 && spot23.getIcon().equals(asteroid)) {asteroidLoc[i][1] = "asteroid";}
-            if (i == 24 && spot24.getIcon().equals(asteroid)) {asteroidLoc[i][1] = "asteroid";}
+            if (i == 0) {
+                if (spot0.getIcon().equals(asteroid)) {
+                    asteroidLoc[i][1] = "asteroid";
+                }
+            }
+            if (i == 1) {
+                if (spot1.getIcon().equals(asteroid)) {
+                    asteroidLoc[i][1] = "asteroid";
+                }
+            }
+            if (i == 2) {
+                if (spot2.getIcon().equals(asteroid)) {
+                    asteroidLoc[i][1] = "asteroid";
+                }
+            }
+            if (i == 3) {
+                if (spot3.getIcon().equals(asteroid)) {
+                    asteroidLoc[i][1] = "asteroid";
+                }
+            }
+            if (i == 4) {
+                if (spot4.getIcon().equals(asteroid)) {
+                    asteroidLoc[i][1] = "asteroid";
+                }
+            }
+            if (i == 5) {
+                if (spot5.getIcon().equals(asteroid)) {
+                    asteroidLoc[i][1] = "asteroid";
+                }
+            }
+            if (i == 6) {
+                if (spot6.getIcon().equals(asteroid)) {
+                    asteroidLoc[i][1] = "asteroid";
+                }
+            }
+            if (i == 7) {
+                if (spot7.getIcon().equals(asteroid)) {
+                    asteroidLoc[i][1] = "asteroid";
+                }
+            }
+            if (i == 8) {
+                if (spot8.getIcon().equals(asteroid)) {
+                    asteroidLoc[i][1] = "asteroid";
+                }
+            }
+            if (i == 9) {
+                if (spot9.getIcon().equals(asteroid)) {
+                    asteroidLoc[i][1] = "asteroid";
+                }
+            }
+            if (i == 10) {
+                if (spot10.getIcon().equals(asteroid)) {
+                    asteroidLoc[i][1] = "asteroid";
+                }
+            }
+            if (i == 11) {
+                if (spot11.getIcon().equals(asteroid)) {
+                    asteroidLoc[i][1] = "asteroid";
+                }
+            }
+            if (i == 12) {
+                if (spot12.getIcon().equals(asteroid)) {
+                    asteroidLoc[i][1] = "asteroid";
+                }
+            }
+            if (i == 13) {
+                if (spot13.getIcon().equals(asteroid)) {
+                    asteroidLoc[i][1] = "asteroid";
+                }
+            }
+            if (i == 14) {
+                if (spot14.getIcon().equals(asteroid)) {
+                    asteroidLoc[i][1] = "asteroid";
+                }
+            }
+            if (i == 15) {
+                if (spot15.getIcon().equals(asteroid)) {
+                    asteroidLoc[i][1] = "asteroid";
+                }
+            }
+            if (i == 16) {
+                if (spot16.getIcon().equals(asteroid)) {
+                    asteroidLoc[i][1] = "asteroid";
+                }
+            }
+            if (i == 17) {
+                if (spot17.getIcon().equals(asteroid)) {
+                    asteroidLoc[i][1] = "asteroid";
+                }
+            }
+            if (i == 18) {
+                if (spot18.getIcon().equals(asteroid)) {
+                    asteroidLoc[i][1] = "asteroid";
+                }
+            }
+            if (i == 19) {
+                if (spot19.getIcon().equals(asteroid)) {
+                    asteroidLoc[i][1] = "asteroid";
+                }
+            }
+            if (i == 20) {
+                if (spot20.getIcon().equals(asteroid)) {
+                    asteroidLoc[i][1] = "asteroid";
+                }
+            }
+            if (i == 21) {
+                if (spot21.getIcon().equals(asteroid)) {
+                    asteroidLoc[i][1] = "asteroid";
+                }
+            }
+            if (i == 22) {
+                if (spot22.getIcon().equals(asteroid)) {
+                    asteroidLoc[i][1] = "asteroid";
+                }
+            }
+            if (i == 23) {
+                if (spot23.getIcon().equals(asteroid)) {
+                    asteroidLoc[i][1] = "asteroid";
+                }
+            }
+            if (i == 24) {
+                if (spot24.getIcon().equals(asteroid)) {
+                    asteroidLoc[i][1] = "asteroid";
+                }
+            }
         }
     }
 
-    /*
-     * method to create a new asteroid in a random location in the top row
-     */
+    // method to create a new asteroid in a random location in the top row
     public void NewAsteroid() {
         // collect new random location
         int newLoc = new Random().nextInt(5);
@@ -601,10 +685,15 @@ public class GameScreen extends JFrame {
         UpdateAsteroidLoc();
     }
 
+<<<<<<< Updated upstream
     /*
      * method that deals with all things asteroid in the game
      */
     public void Asteroid(String check) {
+=======
+    // method that deals with all things asteroid in the game
+    public void Asteroids(String check) {
+>>>>>>> Stashed changes
         // if the method is called and the input is right
         if (check.equals("right")) {
             // add to the number destroyed variable
