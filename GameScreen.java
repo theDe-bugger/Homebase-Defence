@@ -132,9 +132,9 @@ public class GameScreen extends JFrame {
         });
         exitButton.addActionListener(new ActionListener() {
             @Override
-            /*
-            * functioning exit button
-             */
+            /** 
+             * functioning exit button
+            */
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);
             }
