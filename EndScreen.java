@@ -99,9 +99,7 @@ public class EndScreen extends JFrame {
         System.exit(0);
     }//GEN-LAST:event_btnExitActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+
     public static void main(String outputResult, int score) {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
