@@ -31,7 +31,7 @@ public class EndScreen extends JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("GAME OVER");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(150, 10, 210, 50);
+        jLabel3.setBounds(150, 10, 300, 50);
 
         lblYourScore.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         lblYourScore.setForeground(new java.awt.Color(255, 255, 255));
