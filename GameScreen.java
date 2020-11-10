@@ -135,25 +135,6 @@ public class GameScreen extends JFrame {
         });
 
         // Simon Says input buttons
-        // S1.addActionListener(new ActionListener() {
-        //     @Override
-        //     public void actionPerformed(ActionEvent e) {
-            
-        //         if (ipattern.size() < patternSize - 1) {
-        //             // adds to input pattern array list
-        //             ipattern.add(1);
-        //             simonDisable();
-        //             // change icon of button to different colour
-        //             S1.setDisabledIcon(chosenIcon);
-        //             simonDisable();
-        //             simonEnable();
-        //         } else if (ipattern.size() == patternSize - 1) {
-        //             ipattern.add(1);
-        //             simonDisable();
-        //             checkPattern();
-        //         }
-        //     }
-        // });
         S1.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
