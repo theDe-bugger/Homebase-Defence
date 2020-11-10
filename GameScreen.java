@@ -96,7 +96,7 @@ public class GameScreen extends JFrame {
                     $$$setupUI$$$();
                 }
         this.setContentPane(mainPanel);
-        simonDisable();
+        SimonDisable();
         startResetButton.addActionListener(new ActionListener() {
             @Override
             /*
@@ -127,7 +127,7 @@ public class GameScreen extends JFrame {
                 patternSize = 3;
                 round = 1;
                 delay = 1000;
-                simonSays();
+                SimonSays();
             }
         });
         exitButton.addActionListener(new ActionListener() {
@@ -146,7 +146,7 @@ public class GameScreen extends JFrame {
             public void mousePressed(MouseEvent e) {
                 if (simonEnabled == true){
                     super.mousePressed(e);
-                    simonDisable();
+                    SimonDisable();
                     simonEnabled = true;
                     S1.setDisabledIcon(chosenIcon);
                 } else {
@@ -159,14 +159,14 @@ public class GameScreen extends JFrame {
                 
                 if (simonEnabled == true){
                     super.mouseReleased(e);
-                    simonEnable();
+                    SimonEnable();
                     if (ipattern.size() < patternSize - 1) {
                         // adds to input pattern array list
                         ipattern.add(1);
                     } else if (ipattern.size() == patternSize - 1) {
                         ipattern.add(1);
-                        simonDisable();
-                        checkPattern();
+                        SimonDisable();
+                        CheckPattern();
                     }
                 } else{
                     return;
@@ -179,7 +179,7 @@ public class GameScreen extends JFrame {
             public void mousePressed(MouseEvent e) {
                 if (simonEnabled == true){
                     super.mousePressed(e);
-                    simonDisable();
+                    SimonDisable();
                     simonEnabled = true;
                     S2.setDisabledIcon(chosenIcon);
                 } else {
@@ -192,14 +192,14 @@ public class GameScreen extends JFrame {
                 
                 if (simonEnabled == true){
                     super.mouseReleased(e);
-                    simonEnable();
+                    SimonEnable();
                     if (ipattern.size() < patternSize - 1) {
                         // adds to input pattern array list
                         ipattern.add(2);
                     } else if (ipattern.size() == patternSize - 1) {
                         ipattern.add(2);
-                        simonDisable();
-                        checkPattern();
+                        SimonDisable();
+                        CheckPattern();
                     }
                 } else{
                     return;
@@ -211,7 +211,7 @@ public class GameScreen extends JFrame {
             public void mousePressed(MouseEvent e) {
                 if (simonEnabled == true){
                     super.mousePressed(e);
-                    simonDisable();
+                    SimonDisable();
                     simonEnabled = true;
                     S3.setDisabledIcon(chosenIcon);
                 } else {
@@ -224,14 +224,14 @@ public class GameScreen extends JFrame {
                 
                 if (simonEnabled == true){
                     super.mouseReleased(e);
-                    simonEnable();
+                    SimonEnable();
                     if (ipattern.size() < patternSize - 1) {
                         // adds to input pattern array list
                         ipattern.add(3);
                     } else if (ipattern.size() == patternSize - 1) {
                         ipattern.add(3);
-                        simonDisable();
-                        checkPattern();
+                        SimonDisable();
+                        CheckPattern();
                     }
                 } else{
                     return;
@@ -243,7 +243,7 @@ public class GameScreen extends JFrame {
             public void mousePressed(MouseEvent e) {
                 if (simonEnabled == true){
                     super.mousePressed(e);
-                    simonDisable();
+                    SimonDisable();
                     simonEnabled = true;
                     S4.setDisabledIcon(chosenIcon);
                 } else {
@@ -256,14 +256,14 @@ public class GameScreen extends JFrame {
                 
                 if (simonEnabled == true){
                     super.mouseReleased(e);
-                    simonEnable();
+                    SimonEnable();
                     if (ipattern.size() < patternSize - 1) {
                         // adds to input pattern array list
                         ipattern.add(4);
                     } else if (ipattern.size() == patternSize - 1) {
                         ipattern.add(4);
-                        simonDisable();
-                        checkPattern();
+                        SimonDisable();
+                        CheckPattern();
                     }
                 } else{
                     return;
@@ -275,7 +275,7 @@ public class GameScreen extends JFrame {
             public void mousePressed(MouseEvent e) {
                 if (simonEnabled == true){
                     super.mousePressed(e);
-                    simonDisable();
+                    SimonDisable();
                     simonEnabled = true;
                     S5.setDisabledIcon(chosenIcon);
                 } else {
@@ -288,14 +288,14 @@ public class GameScreen extends JFrame {
                 
                 if (simonEnabled == true){
                     super.mouseReleased(e);
-                    simonEnable();
+                    SimonEnable();
                     if (ipattern.size() < patternSize - 1) {
                         // adds to input pattern array list
                         ipattern.add(5);
                     } else if (ipattern.size() == patternSize - 1) {
                         ipattern.add(5);
-                        simonDisable();
-                        checkPattern();
+                        SimonDisable();
+                        CheckPattern();
                     }
                 } else{
                     return;
@@ -307,7 +307,7 @@ public class GameScreen extends JFrame {
             public void mousePressed(MouseEvent e) {
                 if (simonEnabled == true){
                     super.mousePressed(e);
-                    simonDisable();
+                    SimonDisable();
                     simonEnabled = true;
                     S6.setDisabledIcon(chosenIcon);
                 } else {
@@ -320,14 +320,14 @@ public class GameScreen extends JFrame {
                 
                 if (simonEnabled == true){
                     super.mouseReleased(e);
-                    simonEnable();
+                    SimonEnable();
                     if (ipattern.size() < patternSize - 1) {
                         // adds to input pattern array list
                         ipattern.add(6);
                     } else if (ipattern.size() == patternSize - 1) {
                         ipattern.add(6);
-                        simonDisable();
-                        checkPattern();
+                        SimonDisable();
+                        CheckPattern();
                     }
                 } else{
                     return;
@@ -339,7 +339,7 @@ public class GameScreen extends JFrame {
             public void mousePressed(MouseEvent e) {
                 if (simonEnabled == true){
                     super.mousePressed(e);
-                    simonDisable();
+                    SimonDisable();
                     simonEnabled = true;
                     S7.setDisabledIcon(chosenIcon);
                 } else {
@@ -352,14 +352,14 @@ public class GameScreen extends JFrame {
                 
                 if (simonEnabled == true){
                     super.mouseReleased(e);
-                    simonEnable();
+                    SimonEnable();
                     if (ipattern.size() < patternSize - 1) {
                         // adds to input pattern array list
                         ipattern.add(7);
                     } else if (ipattern.size() == patternSize - 1) {
                         ipattern.add(7);
-                        simonDisable();
-                        checkPattern();
+                        SimonDisable();
+                        CheckPattern();
                     }
                 } else{
                     return;
@@ -371,7 +371,7 @@ public class GameScreen extends JFrame {
             public void mousePressed(MouseEvent e) {
                 if (simonEnabled == true){
                     super.mousePressed(e);
-                    simonDisable();
+                    SimonDisable();
                     simonEnabled = true;
                     S8.setDisabledIcon(chosenIcon);
                 } else {
@@ -384,14 +384,14 @@ public class GameScreen extends JFrame {
                 
                 if (simonEnabled == true){
                     super.mouseReleased(e);
-                    simonEnable();
+                    SimonEnable();
                     if (ipattern.size() < patternSize - 1) {
                         // adds to input pattern array list
                         ipattern.add(8);
                     } else if (ipattern.size() == patternSize - 1) {
                         ipattern.add(8);
-                        simonDisable();
-                        checkPattern();
+                        SimonDisable();
+                        CheckPattern();
                     }
                 } else{
                     return;
@@ -403,7 +403,7 @@ public class GameScreen extends JFrame {
             public void mousePressed(MouseEvent e) {
                 if (simonEnabled == true){
                     super.mousePressed(e);
-                    simonDisable();
+                    SimonDisable();
                     simonEnabled = true;
                     S9.setDisabledIcon(chosenIcon);
                 } else {
@@ -416,14 +416,14 @@ public class GameScreen extends JFrame {
                 
                 if (simonEnabled == true){
                     super.mouseReleased(e);
-                    simonEnable();
+                    SimonEnable();
                     if (ipattern.size() < patternSize - 1) {
                         // adds to input pattern array list
                         ipattern.add(9);
                     } else if (ipattern.size() == patternSize - 1) {
                         ipattern.add(9);
-                        simonDisable();
-                        checkPattern();
+                        SimonDisable();
+                        CheckPattern();
                     }
                 } else{
                     return;
@@ -880,7 +880,7 @@ public class GameScreen extends JFrame {
         }
     }
 
-    public void simonDisable() {
+    public void SimonDisable() {
         simonEnabled = false;
         S1.setDisabledIcon(defaultIcon);
         S1.setEnabled(false);
@@ -902,7 +902,7 @@ public class GameScreen extends JFrame {
         S9.setEnabled(false);
     }
 
-    public void simonEnable() {
+    public void SimonEnable() {
         simonEnabled = true;
         S1.setEnabled(true);
         S1.setIcon(defaultIcon);
@@ -932,7 +932,7 @@ public class GameScreen extends JFrame {
         S9.setIcon(defaultIcon);
         S9.setDisabledIcon(defaultIcon);
     }
-    public void setSimonSaysPattern(){
+    public void SetSimonSaysPattern(){
         if (patternSize == 3) {
             for (int y = 0; y < patternSize; y++) {
                 // generate first random location
@@ -962,9 +962,9 @@ public class GameScreen extends JFrame {
         }
     }
 
-    public void simonSays() {
+    public void SimonSays() {
     
-        setSimonSaysPattern(); 
+        SetSimonSaysPattern();
         // converts array list to array
         simonPattern = pattern.toArray(new Integer[0]);
         // display each specific button based on patternSize using timer
@@ -977,7 +977,7 @@ public class GameScreen extends JFrame {
             int x = 0;
 
             public void actionPerformed(ActionEvent e) {
-                simonDisable();
+                SimonDisable();
                 if (x <= simonPattern.length - 1) {
                     if (simonPattern[x] == 1) {
                         S1.setDisabledIcon(chosenIcon);
@@ -1000,7 +1000,7 @@ public class GameScreen extends JFrame {
                     }
                 } else if (x == simonPattern.length) {
                     timer.stop();
-                    simonEnable();
+                    SimonEnable();
                 }
                 x++;
             }
@@ -1009,7 +1009,7 @@ public class GameScreen extends JFrame {
         timer.start();
     }
 
-    public void checkPattern() {
+    public void CheckPattern() {
         inputPattern = new Integer[0];
         inputPattern = ipattern.toArray(inputPattern);
         String check = "right";
@@ -1034,12 +1034,12 @@ public class GameScreen extends JFrame {
             ipattern.clear();
             
             // recursion
-            simonSays();
+            SimonSays();
         } else if (numHealth == 0) {
             // If the score is greater than the highscore, then it will pop up the end screen and print saying u beat the highscore and it will then call the function above (HighScore) and change the name and the score in the XML file
             if (score > highScores) {
                 highScores = score;
-                simonDisable();
+                SimonDisable();
                 String name;
                 String names;
                 name = JOptionPane.showInputDialog("You have beaten the high score! Please enter your name: ");
@@ -1052,7 +1052,7 @@ public class GameScreen extends JFrame {
                 
             } else {
                 // If health is 0 and the score did not beat the highscore, then the end screen will pop up and it will say to keep trying again 
-                simonDisable();
+                SimonDisable();
                 resultOutput = "Oh, no! You weren't able to beat the high score. Keep trying!";
                 EndScreen endScreen = new EndScreen(resultOutput,score);
                 dispose();
@@ -1061,7 +1061,7 @@ public class GameScreen extends JFrame {
             }
         } else{
             // recursion
-            simonSays();
+            SimonSays();
         }
     }
     public static void main(String[]args) {
