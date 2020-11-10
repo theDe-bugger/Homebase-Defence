@@ -623,7 +623,7 @@ public class GameScreen extends JFrame {
             numberDestroyed++;
             // calculate score based on round number and constantly add to score variable when an asteroid is destroyed
             score += 5 * round;
-            // destroy the closest asteroid
+            // destroy the closest asteroid (uses linear search to identify the closest one)
             if (asteroidLoc[24][1].equals("asteroid")) {
                 spot24.setIcon(space);
             } else if (asteroidLoc[23][1].equals("asteroid")) {
@@ -789,7 +789,7 @@ public class GameScreen extends JFrame {
                 if (numHealth == 0) {
                     healthBar.setIcon(noH);
                 }
-                // remove asteroid that damaged the ship
+                // remove asteroid that damaged the ship (uses linear search)
                 if (asteroidLoc[24][1].equals("asteroid")) {
                     spot24.setIcon(space);
                 } else if (asteroidLoc[23][1].equals("asteroid")) {
