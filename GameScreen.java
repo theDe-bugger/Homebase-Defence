@@ -116,7 +116,7 @@ public class GameScreen extends JFrame {
                 scoreNum.setText("Score: 0");
 
                 // to start with multiple asteroids
-                Asteroids("wrong");
+                Asteroid("wrong");
                 
                 // set high score values
                 HighScoreBegin();
@@ -604,7 +604,7 @@ public class GameScreen extends JFrame {
     /*
      * method that deals with all things asteroid in the game
      */
-    public void Asteroids(String check) {
+    public void Asteroid(String check) {
         // if the method is called and the input is right
         if (check.equals("right")) {
             // add to the number destroyed variable
@@ -1022,7 +1022,7 @@ public class GameScreen extends JFrame {
         // call asteroids and reset input pattern to blank
         inputPattern = new Integer[0];
         ipattern.clear();
-        Asteroids(check);
+        Asteroid(check);
         // setting the label to update the score and number of asteroids destroyed when changes in the value of the variables occur
         numDestroyed.setText("Destroyed: " + numberDestroyed);
         scoreNum.setText("Score: " + score);
