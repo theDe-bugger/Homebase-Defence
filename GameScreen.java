@@ -7,6 +7,9 @@
  * @version     1.0
  * @see         assignment 4
  */
+
+package com.homebasedefence.screen;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;

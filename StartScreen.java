@@ -7,6 +7,10 @@
  * @version     1.0
  * @see         assignment 4
  */
+
+package com.homebasedefence.screen;
+
+
 import java.awt.*;
 import javax.swing.*;
 public class StartScreen extends javax.swing.JFrame {

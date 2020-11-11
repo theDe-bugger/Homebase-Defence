@@ -6,11 +6,13 @@
  * @version     1.0
  * @see         assignment 4
  */
+package com.homebasedefence;
+
 public class HomebaseDefence {
     /**
      * code runs main function of StartScreen
      */
     public static void main(String[] args) {
-            StartScreen.main(new String[0]);
+            com.homebasedefence.screen.StartScreen.main(new String[0]);
     }
 }
