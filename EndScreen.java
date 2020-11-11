@@ -86,8 +86,8 @@ public class EndScreen extends JFrame {
         jPanel1.add(btnPlayAgain);
         btnPlayAgain.setBounds(100, 230, 97, 29);
         // Setting the background to an image 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("./Assets/Images/background.png"))); // NOI18N
-        jLabel1.setText("jLabel1");
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Images/background.png"))); // NOI18N
+        jLabel1.setText("");
         jPanel1.add(jLabel1);
         jLabel1.setBounds(0,0, 500, 370);
 

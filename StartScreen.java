@@ -36,7 +36,7 @@ public class StartScreen extends javax.swing.JFrame {
         btnExit = new javax.swing.JButton();
         groupName = new javax.swing.JLabel();
         imageBack = new javax.swing.JLabel();
-        ImageIcon back = new ImageIcon("./Assets/Images/background.png");
+        ImageIcon back = new ImageIcon("/Assets/Images/background.png");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         
