@@ -1114,7 +1114,7 @@ public class GameScreen extends JFrame {
                 endScreen.main(resultOutput,highScores);
             } 
 
-            else {
+            else { 
                 // if health is 0 and the score did not beat the highscore, then the end screen will pop up and it will say to keep trying again 
                 SimonDisable();
                 resultOutput = "Oh, no! You weren't able to beat the high score. Keep trying!";
