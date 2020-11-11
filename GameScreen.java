@@ -504,7 +504,7 @@ public class GameScreen extends JFrame {
      */
     public void HighScoreBegin() {
         try {
-            String filepath = "/Assets/XML/HighScore.xml";
+            String filepath = "./Assets/XML/HighScore.xml";
             DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
             Document doc = docBuilder.parse(filepath);
