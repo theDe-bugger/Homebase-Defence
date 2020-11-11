@@ -156,6 +156,7 @@ public class GameScreen extends JFrame {
 
         /**
          * SimonSays buttons - MouseListeners for input
+         * Used - https://docs.oracle.com/javase/tutorial/uiswing/events/mouselistener.html
          * abstraction + inheritance seen in each SimonSays button MouseListener
          */
         S1.addMouseListener(new MouseAdapter() {
@@ -1005,6 +1006,7 @@ public class GameScreen extends JFrame {
         simonPattern = pattern.toArray(new Integer[0]);
 
         // display each specific button based on patternSize using timer
+        // used https://www.geeksforgeeks.org/java-util-timer-class-java/#:~:text=Timer%20class%20provides%20a%20method,a%20repeated%20number%20of%20executions.
         double exponent = (-1) * (round - 1);
         double time = (1000 * ((Math.pow(2.0, exponent))));
         delay = Math.round((int) (time));
